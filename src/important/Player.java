@@ -7,7 +7,7 @@ public class Player {
     private int maxHp;
     private int speech;
     private int charisma;
-    private ArrayList<Item> inventory = new ArrayList<>();
+    private static ArrayList<Item> inventory = new ArrayList<>();
     private int hunger;
     private int sleepiness;
     private int drunkenness;
