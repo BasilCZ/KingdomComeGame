@@ -1,5 +1,5 @@
 package enums;
 
-public enum ItemType {
+public enum ItemType{
     FOOD, POTION, BOOK, LETTER
 }
