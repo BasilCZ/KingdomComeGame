@@ -41,6 +41,7 @@ public class WorldMap implements Serializable {
                 );
                 trosky.put(Integer.valueOf(lines[0]), location);
             }
+            current = trosky;
             return true;
         } catch (IOException e) {
             return false;

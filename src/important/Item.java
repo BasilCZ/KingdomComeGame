@@ -14,23 +14,26 @@ public class Item {
     private ItemType type;
     private int durability;
     private int value;
+    private boolean equippable;
     private static HashMap<Integer, Item> items = new HashMap<>();
 
-    public Item(String name, String description, int howMany, ItemType type, int durability, int value) {
+    public Item(String name, String description, int howMany, ItemType type, int durability, int value, boolean equippable) {
         this.name = name;
         this.description = description;
         this.howMany = howMany;
         this.type = type;
         this.durability = durability;
         this.value = value;
+        this.equippable = equippable;
     }
 
-    public Item(String name, String description, int howMany, int durability, int value) {
+    public Item(String name, String description, int howMany, int durability, int value, boolean equippable) {
         this.name = name;
         this.description = description;
         this.howMany = howMany;
         this.durability = durability;
         this.value = value;
+        this.equippable = equippable;
     }
 
     public boolean loadItems(){
@@ -44,7 +47,8 @@ public class Item {
                         Integer.parseInt(lines[2]),
                         ItemType.valueOf(lines[3]),
                         Integer.parseInt(lines[4]),
-                        Integer.parseInt(lines[5])
+                        Integer.parseInt(lines[5]),
+                        Boolean.parseBoolean(lines[6])
                 );
                 items.put(Integer.parseInt(lines[0]), item);
             }

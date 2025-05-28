@@ -1,19 +1,19 @@
 package important;
 
-import java.util.ArrayList;
-
-public class Player {
-    private int hp;
-    private int maxHp;
-    private int speech;
-    private int charisma;
-    private static ArrayList<Item> inventory = new ArrayList<>();
+public class Player extends Entity{
     private int hunger;
     private int sleepiness;
     private int drunkenness;
-    private int stamina;
 
-    public ArrayList<Item> getInventory() {
-        return inventory;
+    public Player(int hp, int maxHp, int speech, int charisma, int stamina, int hunger, int sleepiness, int drunkenness) {
+        super(hp, maxHp, speech, charisma, stamina);
+        this.hunger = hunger;
+        this.sleepiness = sleepiness;
+        this.drunkenness = drunkenness;
     }
+
+    public Player() {
+        super();
+    }
+
 }
