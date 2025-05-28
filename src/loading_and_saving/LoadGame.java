@@ -1,22 +1,25 @@
 package loading_and_saving;
 
+import world.Location;
 import world.WorldMap;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.HashMap;
 
-public class Load {
+public class LoadGame {
     public static boolean load(){
         WorldMap wm = new WorldMap();
         if(wm.loadMap()){
             if(new File("save.txt").exists()){
                 try {
                     ObjectInputStream stream = new ObjectInputStream(new FileInputStream("save.txt"));
-                    //Add loading
+                    WorldMap.setWorld((HashMap<Integer, Location>) stream.readObject());
+                    wm.setCurrentPosition(stream.readInt());
                     stream.close();
-                } catch (IOException e) {
+                } catch (IOException | ClassNotFoundException e) {
                     System.out.println(e.getMessage());
                     return false;
                 }

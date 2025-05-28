@@ -1,14 +1,20 @@
 package loading_and_saving;
 
+import world.WorldMap;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-public class Save {
+public class SaveGame {
     public static boolean save(){
+        WorldMap wm = new WorldMap();
         try {
             ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream("save.txt"));
-            //Add saving
+            stream.writeObject(wm.getWorld());
+            stream.writeInt(wm.getCurrentId());
+
+            stream.close();
             return true;
         } catch (IOException e) {
             System.out.println(e.getMessage());
