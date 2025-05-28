@@ -1,8 +1,8 @@
-0;Troskowitz;-1;-1;1;5;false
-1;Tachov;4;6;2;0;false
-2;Zhelejov;-1;3;-1;1;false
-3;Semine;2;-1;7;-1;false
-4;Trosky Castle;-1;1;-1;-1;false
-5;Forest;-1;-1;0;-1;false
-6;Forest;1;-1;-1;-1;false
-7;Traveler;-1;-1;-1;3;false
+0;Troskowitz;-1;-1;1;5;CITY;false
+1;Tachov;4;6;2;0;CITY;false
+2;Zhelejov;-1;3;-1;1;CITY;false
+3;Semine;2;-1;7;-1;CITY;false
+4;Trosky Castle;-1;1;-1;-1;CITY;false
+5;Forest;-1;-1;0;-1;FOREST;false
+6;Forest;1;-1;-1;-1;FOREST;false
+7;Traveler;-1;-1;-1;3;OTHER;false

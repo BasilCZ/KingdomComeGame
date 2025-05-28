@@ -1,5 +1,7 @@
 package world;
 
+import enums.LocationType;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,6 +24,7 @@ public class WorldMap implements Serializable {
                         lines[1],
                         Integer.parseInt(lines[0]),
                         Arrays.copyOfRange(lines, 2, 6),
+                        LocationType.valueOf(lines[6]),
                         Boolean.parseBoolean(lines[6])
                 );
                 kuttenberg.put(Integer.valueOf(lines[0]), location);
@@ -37,7 +40,8 @@ public class WorldMap implements Serializable {
                         lines[1],
                         Integer.parseInt(lines[0]),
                         Arrays.copyOfRange(lines, 2, 6),
-                        Boolean.parseBoolean(lines[6])
+                        LocationType.valueOf(lines[6]),
+                        Boolean.parseBoolean(lines[7])
                 );
                 trosky.put(Integer.valueOf(lines[0]), location);
             }
