@@ -17,6 +17,7 @@ public class Move extends Command {
         currentLocation = world.getCurrentPosition();
         System.out.println(">> You are currently at: " + currentLocation.getName());
         System.out.println(">> Where would you like to move? (up,down,left,right,cancel)");
+        System.out.println(currentLocation.getPossibleMoves());
         String direction = sc.next();
         int moveId = -1;
         switch (direction) {
@@ -34,6 +35,8 @@ public class Move extends Command {
                 break;
             case "cancel":
                 return "You didn't move to any room";
+            default:
+                return "Invalid direction!";
         }
         if (moveId == -1) {
             return "You can't go in that direction!";

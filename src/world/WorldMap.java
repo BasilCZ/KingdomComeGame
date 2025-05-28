@@ -72,6 +72,10 @@ public class WorldMap implements Serializable {
         return current.get(currentPosition).getName();
     }
 
+    public String getNameOf(int index){
+        return current.get(index).getName();
+    }
+
     public static void setWorld(HashMap<Integer, Location> world) {
         WorldMap.current = world;
     }

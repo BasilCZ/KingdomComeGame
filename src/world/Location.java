@@ -62,4 +62,34 @@ public class Location implements Serializable {
     public int getId() {
         return id;
     }
+
+    public String getPossibleMoves() {
+        String possibleMoves = "Possible moves:";
+        WorldMap wm = new WorldMap();
+
+        for (int i = 0; i < locations.length; i++) {
+            switch(i){
+                case 0:
+                    possibleMoves += " up: ";
+                    break;
+                case 1:
+                    possibleMoves += " down: ";
+                    break;
+                case 2:
+                    possibleMoves += " left: ";
+                    break;
+                case 3:
+                    possibleMoves += " right: ";
+                    break;
+            }
+            if(locations[i] != -1){
+                possibleMoves += wm.getNameOf(locations[i]) + ",";
+            } else {
+                possibleMoves += "Nothing,";
+            }
+        }
+        //ChatGPT
+        possibleMoves = possibleMoves.substring(0, possibleMoves.length() - 1);
+        return possibleMoves;
+    }
 }
