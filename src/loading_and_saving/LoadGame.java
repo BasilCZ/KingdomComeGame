@@ -1,9 +1,6 @@
 package loading_and_saving;
 
-import important.Armor;
-import important.Entity;
-import important.Item;
-import important.Weapon;
+import important.*;
 import world.Location;
 import world.WorldMap;
 
@@ -22,11 +19,14 @@ public class LoadGame {
                     ObjectInputStream stream = new ObjectInputStream(new FileInputStream("save.txt"));
                     WorldMap.setWorld((HashMap<Integer, Location>) stream.readObject());
                     wm.setCurrentPosition(stream.readInt());
+                    Player.setPlayer((Player) stream.readObject());
                     stream.close();
                 } catch (IOException | ClassNotFoundException e) {
                     System.out.println(e.getMessage());
                     return false;
                 }
+            } else {
+                Player p = new Player();
             }
             return true;
         } else {

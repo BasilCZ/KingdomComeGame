@@ -62,17 +62,31 @@ public class Entity {
         return hp;
     }
 
-    public String attack(int howMuch, Armor armor){
-        int damage = (howMuch - armor.getProtection());
+    public int attack(int howMuch, Armor armor, int bonusProtection){
+        int damage = (howMuch - (armor.getProtection() + bonusProtection));
         if(damage > 0){
-            if(stamina == 0){
-                this.hp -= damage;
+            if(stamina - damage < 0){
+                stamina = 0;
+                this.hp += (stamina - damage);
             } else {
-                this.stamina -= damage;
-                this.hp -= damage / 10;
+                stamina -= damage;
+                this.hp -= damage/10;
             }
+            if(hp < 0){
+                hp = 0;
+            }
+
+//            if(stamina == 0){
+//                this.hp -= damage;
+//            } else {
+//                if(stamina - damage < 0){
+//                    stamina = 0;
+//                }
+//                this.stamina -= damage;
+//                this.hp -= damage / 10;
+//            }
         }
-        return "You did: " + damage;
+        return damage;
     }
 
     public static boolean loadEntities(){
@@ -128,5 +142,33 @@ public class Entity {
 
     public int getStamina() {
         return stamina;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public void changeStamina(int stamina) {
+        if(this.stamina + stamina > 100){
+            this.stamina = 100;
+        } else {
+            this.stamina += stamina;
+        }
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void changeMoney(int money) {
+        this.money += money;
     }
 }

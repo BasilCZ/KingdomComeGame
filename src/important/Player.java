@@ -22,4 +22,8 @@ public class Player extends Entity{
 
         player = this;
     }
+
+    public static void setPlayer(Player player) {
+        Player.player = player;
+    }
 }

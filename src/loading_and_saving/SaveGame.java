@@ -1,5 +1,6 @@
 package loading_and_saving;
 
+import important.Player;
 import world.WorldMap;
 
 import java.io.FileOutputStream;
@@ -13,6 +14,7 @@ public class SaveGame {
             ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream("save.txt"));
             stream.writeObject(wm.getWorld());
             stream.writeInt(wm.getCurrentId());
+            stream.writeObject(Player.getPlayer());
 
             stream.close();
             return true;

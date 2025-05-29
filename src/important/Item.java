@@ -67,4 +67,12 @@ public class Item {
     public static HashMap<Integer, Item> getItems() {
         return items;
     }
+
+    public void increaseHowMany(){
+        this.howMany++;
+    }
+
+    public int getIndex() {
+        return index;
+    }
 }
