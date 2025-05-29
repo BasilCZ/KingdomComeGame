@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Item {
+    private int index;
     private String name;
     private String description;
     private int howMany;
@@ -17,7 +18,8 @@ public class Item {
     private boolean equippable;
     private static HashMap<Integer, Item> items = new HashMap<>();
 
-    public Item(String name, String description, int howMany, ItemType type, int durability, int value, boolean equippable) {
+    public Item(int index, String name, String description, int howMany, ItemType type, int durability, int value, boolean equippable) {
+        this.index = index;
         this.name = name;
         this.description = description;
         this.howMany = howMany;
@@ -27,7 +29,8 @@ public class Item {
         this.equippable = equippable;
     }
 
-    public Item(String name, String description, int howMany, int durability, int value, boolean equippable) {
+    public Item(int index, String name, String description, int howMany, int durability, int value, boolean equippable) {
+        this.index = index;
         this.name = name;
         this.description = description;
         this.howMany = howMany;
@@ -36,25 +39,27 @@ public class Item {
         this.equippable = equippable;
     }
 
-    public boolean loadItems(){
+    public static boolean loadItems(){
         try (BufferedReader br = new BufferedReader(new FileReader("items.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(";");
                 Item item = new Item(
-                        lines[0],
+                        Integer.parseInt(lines[0]),
                         lines[1],
-                        Integer.parseInt(lines[2]),
-                        ItemType.valueOf(lines[3]),
-                        Integer.parseInt(lines[4]),
+                        lines[2],
+                        Integer.parseInt(lines[3]),
+                        ItemType.valueOf(lines[4]),
                         Integer.parseInt(lines[5]),
-                        Boolean.parseBoolean(lines[6])
+                        Integer.parseInt(lines[6]),
+                        Boolean.parseBoolean(lines[7])
                 );
                 items.put(Integer.parseInt(lines[0]), item);
             }
+            return true;
         } catch (IOException e) {
+            System.out.println(e.getMessage());
             return false;
         }
-        return false;
     }
 }

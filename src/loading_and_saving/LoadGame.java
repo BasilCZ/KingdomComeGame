@@ -1,5 +1,8 @@
 package loading_and_saving;
 
+import important.Armor;
+import important.Item;
+import important.Weapon;
 import world.Location;
 import world.WorldMap;
 
@@ -12,7 +15,7 @@ import java.util.HashMap;
 public class LoadGame {
     public static boolean load(){
         WorldMap wm = new WorldMap();
-        if(wm.loadMap()){
+        if(WorldMap.loadMap() && Item.loadItems() && Weapon.loadWeapons() && Armor.loadArmor()){
             if(new File("save.txt").exists()){
                 try {
                     ObjectInputStream stream = new ObjectInputStream(new FileInputStream("save.txt"));

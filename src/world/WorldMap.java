@@ -15,7 +15,7 @@ public class WorldMap implements Serializable {
     private static int currentPosition = 0;
 
     //Loads all the rooms from the file
-    public boolean loadMap() {
+    public static boolean loadMap() {
         try (BufferedReader br = new BufferedReader(new FileReader("kuttenberg.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {

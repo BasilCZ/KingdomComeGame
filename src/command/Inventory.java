@@ -6,14 +6,13 @@ public class Inventory extends Command {
     //Returns player's inventory
     @Override
     public String execute() {
-        Player p = new Player();
-        if (p.getInventory().isEmpty()) {
+        if (Player.getPlayer().getInventory().isEmpty()) {
             return "You don't have anything!";
         } else {
             String inventory = "";
             //Adds all the items in the inventory under each other
-            for (int i = 0; i < p.getInventory().size(); i++) {
-                inventory += p.getInventory().get(i) + "\n";
+            for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
+                inventory += Player.getPlayer().getInventory().get(i) + "\n";
             }
             return inventory;
         }
