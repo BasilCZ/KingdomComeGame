@@ -18,6 +18,7 @@ public class Battle {
         while(Player.getPlayer().getHp() > 0 && e.getHp() > 0 && !playerGiveUp && !enemyGiveUp){
             String input = "";
             boolean correctInput = false;
+            enemyBlock = 0;
             //Player's turn
             while(!correctInput){
                 System.out.println("Player\nHp: " + Player.getPlayer().getHp() + "\nStamina: " + Player.getPlayer().getStamina() + "\n");
@@ -63,13 +64,13 @@ public class Battle {
                 }
                 switch(choice){
                     case BattleChoice.UP:
-                        System.out.println("The enemy did: " + e.attack(Player.getPlayer().getWeapon().getDamage(), e.getHelmet(), enemyBlock) + " damage!");
+                        System.out.println("The enemy did: " + Player.getPlayer().attack(e.getWeapon().getDamage(), Player.getPlayer().getHelmet(), playerBlock) + " damage!");
                         break;
                     case BattleChoice.DOWN:
-                        System.out.println("The enemy did: " + e.attack(Player.getPlayer().getWeapon().getDamage(), e.getLeggings(), enemyBlock) + " damage!");
+                        System.out.println("The enemy did: " + Player.getPlayer().attack(e.getWeapon().getDamage(), Player.getPlayer().getLeggings(), playerBlock) + " damage!");
                         break;
                     case BattleChoice.LEFT, BattleChoice.RIGHT:
-                        System.out.println("The enemy did: " + e.attack(Player.getPlayer().getWeapon().getDamage(), e.getChestplate(), enemyBlock) + " damage!");
+                        System.out.println("The enemy did: " + Player.getPlayer().attack(e.getWeapon().getDamage(), Player.getPlayer().getChestplate(), playerBlock) + " damage!");
                         break;
                     case BattleChoice.BLOCK:
                         System.out.println("The enemy is blocking!");
@@ -81,14 +82,16 @@ public class Battle {
                         break;
                 }
             }
+            playerBlock = 0;
         }
         if(playerGiveUp){
-            System.out.println("You got robbed and lost " + e.getMoney()/5 + " money");
-            e.changeMoney(-e.getMoney()/5);
+            System.out.println("You got robbed and lost " + Player.getPlayer().getMoney()/5 + " money");
+            Player.getPlayer().changeMoney(-Player.getPlayer().getMoney()/5);
         }
         if(enemyGiveUp) {
+            System.out.println("They're giving up!");
             String input = "";
-            while(input != "1)" && input != "2)" && input != "3)"){
+            while(!input.equals("1)") && !input.equals("2)") && !input.equals("3)")){
                 System.out.println("What do you wanna do with them?\n1) Let them go\n2) Rob him and let them go\n3) Kill them");
                 input = sc.next();
             }
@@ -98,6 +101,7 @@ public class Battle {
                     break;
                 case "2)":
                     System.out.println("You robbed them!");
+                    Player.getPlayer().changeMoney(e.getMoney());
                     for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
                         for (int j = 0; j < e.getInventory().size(); j++) {
                             if(Player.getPlayer().getInventory().get(i).getIndex() == e.getInventory().get(j).getIndex()){
@@ -117,12 +121,14 @@ public class Battle {
         }
         if(e.getHp() == 0){
             String input = "";
-            while(input.toLowerCase() != "yes" && input.toLowerCase() != "no"){
+            while(!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no")){
                 System.out.println("Do you wanna loot their body? (Yes/No)");
+                input = sc.next();
             }
             switch(input.toLowerCase()){
                 case "yes":
                     System.out.println("You looted the body");
+                    Player.getPlayer().changeMoney(e.getMoney());
                     for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
                         for (int j = 0; j < e.getInventory().size(); j++) {
                             if(Player.getPlayer().getInventory().get(i).getIndex() == e.getInventory().get(j).getIndex()){

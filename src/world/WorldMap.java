@@ -48,6 +48,7 @@ public class WorldMap implements Serializable {
             current = trosky;
             return true;
         } catch (IOException e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }

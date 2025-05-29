@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class LoadGame {
     public static boolean load(){
         WorldMap wm = new WorldMap();
-        if(WorldMap.loadMap() && Item.loadItems() && Weapon.loadWeapons() && Armor.loadArmor() && Entity.loadEntities()){
+        if(WorldMap.loadMap() && Item.loadItems() && Weapon.loadWeapons() && Armor.loadArmor() /*&& Entity.loadEntities()*/){
             if(new File("save.txt").exists()){
                 try {
                     ObjectInputStream stream = new ObjectInputStream(new FileInputStream("save.txt"));

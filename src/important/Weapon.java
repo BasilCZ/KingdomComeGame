@@ -22,7 +22,7 @@ public class Weapon extends Item{
     }
 
     public static boolean loadWeapons(){
-        try(BufferedReader br = new BufferedReader(new FileReader("weapon.csv"))) {
+        try(BufferedReader br = new BufferedReader(new FileReader("weapons.csv"))) {
             String line;
             while( (line = br.readLine()) != null){
                 String[] lines = line.split(";");
@@ -41,6 +41,7 @@ public class Weapon extends Item{
             }
             return true;
         } catch (IOException e) {
+            System.out.printf(e.getMessage());
             return false;
         }
     }
