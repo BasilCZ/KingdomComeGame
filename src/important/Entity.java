@@ -36,13 +36,14 @@ public class Entity {
         this.weapon = weapon;
     }
 
-    public Entity(int index, String name, int hp, int maxHp, int speech, int charisma, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon) {
+    public Entity(int index, String name, int hp, int maxHp, int speech, int charisma, ArrayList<Item> inventory, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon) {
         this.index = index;
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
         this.speech = speech;
         this.charisma = charisma;
+        this.inventory = inventory;
         this.stamina = stamina;
         this.helmet = helmet;
         this.chestplate = chestplate;
@@ -63,6 +64,12 @@ public class Entity {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(";");
+                String[] intentoryLoad = lines[6].split(",");
+                ArrayList<Item> items = new ArrayList<>();
+
+                for (int i = 0; i < intentoryLoad.length; i++) {
+                    items.add(Item.getItems().get(Integer.parseInt(intentoryLoad[i])));
+                }
                 Entity entity = new Entity(
                         Integer.parseInt(lines[0]),
                         lines[1],
@@ -70,11 +77,12 @@ public class Entity {
                         Integer.parseInt(lines[3]),
                         Integer.parseInt(lines[4]),
                         Integer.parseInt(lines[5]),
-                        Integer.parseInt(lines[6]),
-                        Armor.getArmors().get(Integer.parseInt(lines[7])),
+                        items,
+                        Integer.parseInt(lines[7]),
                         Armor.getArmors().get(Integer.parseInt(lines[8])),
                         Armor.getArmors().get(Integer.parseInt(lines[9])),
-                        Weapon.getWeapons().get(Integer.parseInt(lines[10]))
+                        Armor.getArmors().get(Integer.parseInt(lines[10])),
+                        Weapon.getWeapons().get(Integer.parseInt(lines[11]))
                 );
                 entities.put(Integer.parseInt(lines[0]), entity);
             }
