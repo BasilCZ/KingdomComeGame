@@ -45,4 +45,8 @@ public class Weapon extends Item{
             return false;
         }
     }
+
+    public static HashMap<Integer, Weapon> getWeapons() {
+        return weapons;
+    }
 }

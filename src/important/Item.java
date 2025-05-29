@@ -62,4 +62,8 @@ public class Item {
             return false;
         }
     }
+
+    public static HashMap<Integer, Item> getItems() {
+        return items;
+    }
 }

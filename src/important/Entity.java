@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 public class Entity {
     private int index;
+    private String name;
     private int hp;
     private int maxHp;
     private int speech;
@@ -18,7 +19,7 @@ public class Entity {
     private Armor chestplate;
     private Armor leggings;
     private Weapon weapon;
-    private HashMap<Integer, Entity> entities = new HashMap<>();
+    private static HashMap<Integer, Entity> entities = new HashMap<>();
 
     public Entity() {
     }
@@ -35,8 +36,9 @@ public class Entity {
         this.weapon = weapon;
     }
 
-    public Entity(int index, int hp, int maxHp, int speech, int charisma, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon, HashMap<Integer, Entity> entities) {
+    public Entity(int index, String name, int hp, int maxHp, int speech, int charisma, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon) {
         this.index = index;
+        this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
         this.speech = speech;
@@ -46,7 +48,6 @@ public class Entity {
         this.chestplate = chestplate;
         this.leggings = leggings;
         this.weapon = weapon;
-        this.entities = entities;
     }
 
     public ArrayList<Item> getInventory() {
@@ -57,14 +58,30 @@ public class Entity {
         return hp;
     }
 
-    public boolean loadEntities(){
+    public static boolean loadEntities(){
         try(BufferedReader br = new BufferedReader(new FileReader("entity.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(";");
+                Entity entity = new Entity(
+                        Integer.parseInt(lines[0]),
+                        lines[1],
+                        Integer.parseInt(lines[2]),
+                        Integer.parseInt(lines[3]),
+                        Integer.parseInt(lines[4]),
+                        Integer.parseInt(lines[5]),
+                        Integer.parseInt(lines[6]),
+                        Armor.getArmors().get(Integer.parseInt(lines[7])),
+                        Armor.getArmors().get(Integer.parseInt(lines[8])),
+                        Armor.getArmors().get(Integer.parseInt(lines[9])),
+                        Weapon.getWeapons().get(Integer.parseInt(lines[10]))
+                );
+                entities.put(Integer.parseInt(lines[0]), entity);
             }
+            return true;
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            return false;
         }
     }
 }

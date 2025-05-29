@@ -43,4 +43,8 @@ public class Armor extends Item{
             return false;
         }
     }
+
+    public static HashMap<Integer, Armor> getArmors() {
+        return armors;
+    }
 }
