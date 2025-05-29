@@ -63,6 +63,10 @@ public class Location implements Serializable {
         return id;
     }
 
+    public LocationType getLocationType() {
+        return locationType;
+    }
+
     public String getPossibleMoves() {
         String possibleMoves = "Possible moves:";
         WorldMap wm = new WorldMap();

@@ -19,12 +19,13 @@ public class Entity {
     private Armor chestplate;
     private Armor leggings;
     private Weapon weapon;
+    private int money;
     private static HashMap<Integer, Entity> entities = new HashMap<>();
 
     public Entity() {
     }
 
-    public Entity(int hp, int maxHp, int speech, int charisma, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon) {
+    public Entity(int hp, int maxHp, int speech, int charisma, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon, int money) {
         this.hp = hp;
         this.maxHp = maxHp;
         this.speech = speech;
@@ -34,9 +35,10 @@ public class Entity {
         this.chestplate = chestplate;
         this.leggings = leggings;
         this.weapon = weapon;
+        this.money = money;
     }
 
-    public Entity(int index, String name, int hp, int maxHp, int speech, int charisma, ArrayList<Item> inventory, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon) {
+    public Entity(int index, String name, int hp, int maxHp, int speech, int charisma, ArrayList<Item> inventory, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon, int money) {
         this.index = index;
         this.name = name;
         this.hp = hp;
@@ -49,6 +51,7 @@ public class Entity {
         this.chestplate = chestplate;
         this.leggings = leggings;
         this.weapon = weapon;
+        this.money = money;
     }
 
     public ArrayList<Item> getInventory() {
@@ -57,6 +60,19 @@ public class Entity {
 
     public int getHp() {
         return hp;
+    }
+
+    public String attack(int howMuch, Armor armor){
+        int damage = (howMuch - armor.getProtection());
+        if(damage > 0){
+            if(stamina == 0){
+                this.hp -= damage;
+            } else {
+                this.stamina -= damage;
+                this.hp -= damage / 10;
+            }
+        }
+        return "You did: " + damage;
     }
 
     public static boolean loadEntities(){
@@ -82,7 +98,8 @@ public class Entity {
                         Armor.getArmors().get(Integer.parseInt(lines[8])),
                         Armor.getArmors().get(Integer.parseInt(lines[9])),
                         Armor.getArmors().get(Integer.parseInt(lines[10])),
-                        Weapon.getWeapons().get(Integer.parseInt(lines[11]))
+                        Weapon.getWeapons().get(Integer.parseInt(lines[11])),
+                        Integer.parseInt(lines[12])
                 );
                 entities.put(Integer.parseInt(lines[0]), entity);
             }
@@ -91,5 +108,25 @@ public class Entity {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+
+    public Armor getHelmet() {
+        return helmet;
+    }
+
+    public Armor getChestplate() {
+        return chestplate;
+    }
+
+    public Armor getLeggings() {
+        return leggings;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public int getStamina() {
+        return stamina;
     }
 }

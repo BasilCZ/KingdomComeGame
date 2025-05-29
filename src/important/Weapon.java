@@ -14,8 +14,8 @@ public class Weapon extends Item{
     private int staminaCost;
     private static HashMap<Integer, Weapon> weapons = new HashMap<>();
 
-    public Weapon(int index, String name, String description, int howMany, int durability, int value, boolean equippable, WeaponType type, int damage, int staminaCost) {
-        super(index, name, description, howMany, durability, value, equippable);
+    public Weapon(int index, String name, String description, int durability, int value, boolean equippable, WeaponType type, int damage, int staminaCost) {
+        super(index, name, description, durability, value, equippable);
         this.type = type;
         this.damage = damage;
         this.staminaCost = staminaCost;
@@ -32,11 +32,10 @@ public class Weapon extends Item{
                         lines[2],
                         Integer.parseInt(lines[3]),
                         Integer.parseInt(lines[4]),
-                        Integer.parseInt(lines[5]),
-                        Boolean.parseBoolean(lines[6]),
-                        WeaponType.valueOf(lines[7]),
-                        Integer.parseInt(lines[8]),
-                        Integer.parseInt(lines[9])
+                        Boolean.parseBoolean(lines[5]),
+                        WeaponType.valueOf(lines[6]),
+                        Integer.parseInt(lines[7]),
+                        Integer.parseInt(lines[8])
                 );
                 weapons.put(Integer.parseInt(lines[0]), weapon);
             }
@@ -48,5 +47,13 @@ public class Weapon extends Item{
 
     public static HashMap<Integer, Weapon> getWeapons() {
         return weapons;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getStaminaCost() {
+        return staminaCost;
     }
 }

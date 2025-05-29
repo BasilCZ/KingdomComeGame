@@ -29,15 +29,16 @@ public class Item {
         this.equippable = equippable;
     }
 
-    public Item(int index, String name, String description, int howMany, int durability, int value, boolean equippable) {
+    public Item(int index, String name, String description, int durability, int value, boolean equippable) {
         this.index = index;
         this.name = name;
         this.description = description;
-        this.howMany = howMany;
         this.durability = durability;
         this.value = value;
         this.equippable = equippable;
     }
+
+
 
     public static boolean loadItems(){
         try (BufferedReader br = new BufferedReader(new FileReader("items.csv"))) {

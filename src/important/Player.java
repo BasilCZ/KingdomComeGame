@@ -14,8 +14,8 @@ public class Player extends Entity{
         return player;
     }
 
-    public Player(int hp, int maxHp, int speech, int charisma, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon, int hunger, int sleepiness, int drunkenness) {
-        super(hp, maxHp, speech, charisma, stamina, helmet, chestplate, leggings, weapon);
+    public Player(int hp, int maxHp, int speech, int charisma, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon, int money, int hunger, int sleepiness, int drunkenness) {
+        super(hp, maxHp, speech, charisma, stamina, helmet, chestplate, leggings, weapon, money);
         this.hunger = hunger;
         this.sleepiness = sleepiness;
         this.drunkenness = drunkenness;

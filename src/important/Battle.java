@@ -12,8 +12,10 @@ public class Battle {
         while(Player.getPlayer().getHp() > 0 && e.getHp() > 0 && !playerGiveUp && !entityGiveUp){
             String input = "";
             boolean correctInput = false;
+            int blockingProtection = 0;
             //Player's turn
             while(!correctInput){
+                System.out.println("What do you wanna do? (UP, DOWN, LEFT, RIGHT, BLOCK, GIVEUP)");
                 input = sc.next();
                 for (int i = 0; i < BattleChoice.values().length; i++) {
                     if (BattleChoice.values()[i].name().equalsIgnoreCase(input)) {
@@ -22,24 +24,28 @@ public class Battle {
                     }
                 }
             }
-            switch(BattleChoice.valueOf(input)){
+            switch(BattleChoice.valueOf(input.toUpperCase())){
                 case BattleChoice.UP:
-
+                    System.out.println(e.attack(Player.getPlayer().getWeapon().getDamage(), e.getHelmet()));
+                    break;
                 case BattleChoice.DOWN:
-
-                case BattleChoice.LEFT:
-
-                case BattleChoice.RIGHT:
-
+                    System.out.println(e.attack(Player.getPlayer().getWeapon().getDamage(), e.getLeggings()));
+                    break;
+                case BattleChoice.LEFT, BattleChoice.RIGHT:
+                    System.out.println(e.attack(Player.getPlayer().getWeapon().getDamage(), e.getChestplate()));
+                    break;
                 case BattleChoice.BLOCK:
-
+                    blockingProtection = 5;
+                    break;
                 case BattleChoice.GIVEUP:
-
+                    playerGiveUp = true;
+                    break;
             }
 
-
-
             //Enemy's turn
+            if(!playerGiveUp){
+
+            }
         }
     }
 }
