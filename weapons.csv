@@ -1,1 +1,11 @@
 0;Stick;This is just a stick what did you expect;18;0;true;SHORT_SWORD;1;15
+1;Rusty Dagger;A dull blade that has seen better days;22;3;true;SHORT_SWORD;2;12
+2;Iron Sword;A standard issue iron longsword;38;18;true;LONG_SWORD;6;20
+3;Wooden Club;A simple club made from a tree branch;25;5;true;MACE;4;15
+4;Steel Axe;A heavy but powerful weapon;30;30;true;AXE;9;25
+5;Hunting Bow;A bow made for hunting small game;28;20;true;BOW;5;18
+6;Crossbow;Requires loading, but deadly accurate;32;40;true;CROSSBOW;8;22
+7;Short Sword;Balanced and quick in close combat;35;15;true;SHORT_SWORD;5;14
+8;War Mace;Thick head designed to crush armor;30;25;true;MACE;7;19
+9;Handgun;A compact firearm with limited ammo;20;50;true;HANDGUN;10;30
+10;Battle Axe;A large axe meant for two hands;28;35;true;AXE;11;28

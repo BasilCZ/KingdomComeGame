@@ -113,6 +113,7 @@ public class Battle {
                 case "3)":
                     System.out.println("You killed them");
                     e.setHp(0);
+                    e.setAlive(false);
                     break;
             }
         }
@@ -120,6 +121,7 @@ public class Battle {
             System.out.println(new GameOver().execute());
         }
         if(e.getHp() == 0){
+            e.setAlive(false);
             String input = "";
             while(!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no")){
                 System.out.println("Do you wanna loot their body? (Yes/No)");

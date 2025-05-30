@@ -26,7 +26,7 @@ public class LoadGame {
                     return false;
                 }
             } else {
-                Player p = new Player();
+                Player p = new Player(100,100,2,2,100,Armor.getArmors().get(0), Armor.getArmors().get(11), Armor.getArmors().get(3), Weapon.getWeapons().get(0), 20, 100, 0, 0);
             }
             return true;
         } else {

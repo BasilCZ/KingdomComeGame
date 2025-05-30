@@ -21,6 +21,7 @@ public class Console {
         map.put("save", new Save());
         map.put("shop", new Shop());
         map.put("equip", new Equip());
+        map.put("read", new Read());
     }
 
     private Scanner scanner = new Scanner(System.in);

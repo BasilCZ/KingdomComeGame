@@ -1,2 +1,19 @@
 0;Apple;Just an apple;1;FOOD;100;1;false
 1;Bread;Yum;1;FOOD;100;2;false
+2;Cheese;A piece of aged cheese;1;FOOD;100;3;false
+3;Meat;Cooked and ready to eat;1;FOOD;100;5;false
+4;Water Bottle;Fresh drinking water;1;FOOD;100;1;false
+5;Health Potion;Restores some health;1;POTION;1;15;false
+6;Stamina Potion;Gives you energy;1;POTION;1;12;false
+7;Old Book;Worn out and dusty;1;BOOK;100;4;false
+8;Letter from King;A letter sealed with wax;1;LETTER;100;10;false
+9;Elixir of Life;Very rare potion;1;POTION;1;50;false
+10;Love Letter;It smells like perfume;1;LETTER;100;2;false
+11;Cooked Fish;Delicious protein;1;FOOD;100;4;false
+12;Milk Bottle;Still fresh;1;FOOD;100;2;false
+13;Ancient Tome;Filled with forgotten knowledge;1;BOOK;100;30;false
+14;Injury Report;Detailed and boring;1;LETTER;100;3;false
+15;Goat Cheese;Soft and creamy;1;FOOD;100;3;false
+16;Travel Journal;Pages filled with notes;1;BOOK;100;7;false
+17;Berry Pie;Sticky but good;1;FOOD;100;6;false
+18;Torn Page;Barely readable text;1;BOOK;100;1;false

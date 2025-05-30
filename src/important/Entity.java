@@ -7,20 +7,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Entity {
-    private int index;
-    private String name;
-    private int hp;
-    private int maxHp;
-    private int speech;
-    private int charisma;
-    private ArrayList<Item> inventory = new ArrayList<>();
-    private int stamina;
-    private Armor helmet;
-    private Armor chestplate;
-    private Armor leggings;
-    private Weapon weapon;
-    private int money;
+    protected int index;
+    protected String name;
+    protected int hp;
+    protected int maxHp;
+    protected int speech;
+    protected int charisma;
+    protected ArrayList<Item> inventory = new ArrayList<>();
+    protected int stamina;
+    protected Armor helmet;
+    protected Armor chestplate;
+    protected Armor leggings;
+    protected Weapon weapon;
+    protected int money;
     private static HashMap<Integer, Entity> entities = new HashMap<>();
+    protected int where;
+    protected boolean inTrosky;
+    protected boolean isAlive;
 
     public Entity() {
     }
@@ -38,7 +41,7 @@ public class Entity {
         this.money = money;
     }
 
-    public Entity(int index, String name, int hp, int maxHp, int speech, int charisma, ArrayList<Item> inventory, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon, int money) {
+    public Entity(int index, String name, int hp, int maxHp, int speech, int charisma, ArrayList<Item> inventory, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon, int money, int where, boolean inTrosky, boolean isAlive) {
         this.index = index;
         this.name = name;
         this.hp = hp;
@@ -52,6 +55,9 @@ public class Entity {
         this.leggings = leggings;
         this.weapon = weapon;
         this.money = money;
+        this.where = where;
+        this.inTrosky = inTrosky;
+        this.isAlive = isAlive;
     }
 
     public ArrayList<Item> getInventory() {
@@ -75,16 +81,6 @@ public class Entity {
             if(hp < 0){
                 hp = 0;
             }
-
-//            if(stamina == 0){
-//                this.hp -= damage;
-//            } else {
-//                if(stamina - damage < 0){
-//                    stamina = 0;
-//                }
-//                this.stamina -= damage;
-//                this.hp -= damage / 10;
-//            }
         }
         return damage;
     }
@@ -113,7 +109,10 @@ public class Entity {
                         Armor.getArmors().get(Integer.parseInt(lines[9])),
                         Armor.getArmors().get(Integer.parseInt(lines[10])),
                         Weapon.getWeapons().get(Integer.parseInt(lines[11])),
-                        Integer.parseInt(lines[12])
+                        Integer.parseInt(lines[12]),
+                        Integer.parseInt(lines[13]),
+                        Boolean.parseBoolean(lines[14]),
+                        Boolean.parseBoolean(lines[15])
                 );
                 entities.put(Integer.parseInt(lines[0]), entity);
             }
@@ -190,5 +189,29 @@ public class Entity {
 
     public void setHelmet(Armor helmet) {
         this.helmet = helmet;
+    }
+
+    public void changeSpeech(int speech) {
+        this.speech += speech;
+    }
+
+    public void changeCharisma(int charisma) {
+        this.charisma += charisma;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
+    public static HashMap<Integer, Entity> getEntities() {
+        return entities;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public int getWhere() {
+        return where;
     }
 }

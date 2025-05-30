@@ -8,14 +8,14 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Item {
-    private int index;
-    private String name;
-    private String description;
+    protected int index;
+    protected String name;
+    protected String description;
     private int howMany;
     private ItemType type;
-    private int durability;
-    private int value;
-    private boolean equippable;
+    protected int durability;
+    protected int value;
+    protected boolean equippable;
     private static HashMap<Integer, Item> items = new HashMap<>();
 
     public Item(int index, String name, String description, int howMany, ItemType type, int durability, int value, boolean equippable) {

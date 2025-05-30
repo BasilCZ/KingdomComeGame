@@ -15,7 +15,7 @@ public class Shop extends Command{
     @Override
     public String execute() {
         WorldMap wm = new  WorldMap();
-        if(wm.getCurrentPosition().getLocationType() == LocationType.CITY){
+        if(wm.getCurrentPosition().getLocationType() == LocationType.SHOP){
             Scanner sc = new Scanner(System.in);
             String input = "";
             Random rd = new Random();
