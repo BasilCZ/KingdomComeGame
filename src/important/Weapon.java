@@ -57,4 +57,17 @@ public class Weapon extends Item{
     public int getStaminaCost() {
         return staminaCost;
     }
+
+    @Override
+    public String toString() {
+        return "Weapon{" +
+                "name='" + getName() + '\'' +
+                ", description='" + getDescription() + '\'' +
+                ", type=" + type +
+                ", durability=" + getDurability() +
+                ", value=" + getValue() +
+                ", damage=" + damage +
+                ", staminaCost=" + staminaCost +
+                '}';
+    }
 }

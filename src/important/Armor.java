@@ -50,4 +50,19 @@ public class Armor extends Item{
     public int getProtection() {
         return protection;
     }
+
+    @Override
+    public String toString() {
+        return "Armor{" +
+                "name='" + getName() + '\'' +
+                ", description='" + getDescription() + '\'' +
+                ", type=" + type +
+                ", durability=" + getDurability() +
+                ", protection=" + protection +
+                '}';
+    }
+
+    public ArmorType getArmorType() {
+        return type;
+    }
 }

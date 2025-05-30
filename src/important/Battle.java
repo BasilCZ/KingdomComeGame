@@ -117,7 +117,7 @@ public class Battle {
             }
         }
         if(Player.getPlayer().getHp() == 0){
-            new GameOver();
+            System.out.println(new GameOver().execute());
         }
         if(e.getHp() == 0){
             String input = "";

@@ -19,6 +19,8 @@ public class Console {
         map.put("end", new End());
         map.put("delete", new Delete());
         map.put("save", new Save());
+        map.put("shop", new Shop());
+        map.put("equip", new Equip());
     }
 
     private Scanner scanner = new Scanner(System.in);

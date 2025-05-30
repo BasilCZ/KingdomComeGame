@@ -171,4 +171,24 @@ public class Entity {
     public void changeMoney(int money) {
         this.money += money;
     }
+
+    public void addToInventory(Item item){
+        inventory.add(item);
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public void setLeggings(Armor leggings) {
+        this.leggings = leggings;
+    }
+
+    public void setChestplate(Armor chestplate) {
+        this.chestplate = chestplate;
+    }
+
+    public void setHelmet(Armor helmet) {
+        this.helmet = helmet;
+    }
 }

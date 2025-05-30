@@ -79,4 +79,44 @@ public class Item {
     public void decreaseDurability() {
         this.durability--;
     }
+
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", durability=" + durability +
+                ", value=" + value +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getHowMany() {
+        return howMany;
+    }
+
+    public ItemType getType() {
+        return type;
+    }
+
+    public int getDurability() {
+        return durability;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public boolean isEquippable() {
+        return equippable;
+    }
 }
