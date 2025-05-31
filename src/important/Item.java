@@ -123,4 +123,8 @@ public class Item implements Serializable {
         }
         this.durability += durability;
     }
+
+    public void setDurability(int durability) {
+        this.durability = durability;
+    }
 }

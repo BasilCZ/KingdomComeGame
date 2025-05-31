@@ -1,0 +1,14 @@
+move
+move
+move
+shop
+inventory
+shop
+inventory
+move
+move
+move
+move
+move
+speak
+talk

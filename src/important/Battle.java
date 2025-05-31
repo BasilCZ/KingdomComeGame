@@ -48,16 +48,19 @@ public class Battle {
                     System.out.println("You did: " + e.attack(Player.getPlayer().getWeapon().getDamage(), e.getHelmet(), enemyBlock) + " damage!");
                     Player.getPlayer().changeStamina(-Player.getPlayer().getWeapon().getStaminaCost());
                     e.getHelmet().changeDurability(-2);
+                    Player.getPlayer().getWeapon().changeDurability(-1);
                     break;
                 case BattleChoice.DOWN:
                     System.out.println("You did: " + e.attack(Player.getPlayer().getWeapon().getDamage(), e.getLeggings(), enemyBlock) + " damage!");
                     Player.getPlayer().changeStamina(-Player.getPlayer().getWeapon().getStaminaCost());
                     e.getChestplate().changeDurability(-2);
+                    Player.getPlayer().getWeapon().changeDurability(-1);
                     break;
                 case BattleChoice.LEFT, BattleChoice.RIGHT:
                     System.out.println("You did: " + e.attack(Player.getPlayer().getWeapon().getDamage(), e.getChestplate(), enemyBlock) + " damage!");
                     Player.getPlayer().changeStamina(-Player.getPlayer().getWeapon().getStaminaCost());
                     e.getLeggings().changeDurability(-2);
+                    Player.getPlayer().getWeapon().changeDurability(-1);
                     break;
                 case BattleChoice.BLOCK:
                     System.out.println("You're blocking!");
@@ -84,16 +87,19 @@ public class Battle {
                         System.out.println("The enemy did: " + Player.getPlayer().attack(e.getWeapon().getDamage(), Player.getPlayer().getHelmet(), playerBlock) + " damage!");
                         e.changeStamina(-e.getWeapon().getStaminaCost());
                         Player.getPlayer().getHelmet().changeDurability(-2);
+                        e.getWeapon().changeDurability(-1);
                         break;
                     case BattleChoice.DOWN:
                         System.out.println("The enemy did: " + Player.getPlayer().attack(e.getWeapon().getDamage(), Player.getPlayer().getLeggings(), playerBlock) + " damage!");
                         e.changeStamina(-e.getWeapon().getStaminaCost());
                         Player.getPlayer().getChestplate().changeDurability(-2);
+                        e.getWeapon().changeDurability(-1);
                         break;
                     case BattleChoice.LEFT, BattleChoice.RIGHT:
                         System.out.println("The enemy did: " + Player.getPlayer().attack(e.getWeapon().getDamage(), Player.getPlayer().getChestplate(), playerBlock) + " damage!");
                         e.changeStamina(-e.getWeapon().getStaminaCost());
                         Player.getPlayer().getLeggings().changeDurability(-2);
+                        e.getWeapon().changeDurability(-1);
                         break;
                     case BattleChoice.BLOCK:
                         System.out.println("The enemy is blocking!");

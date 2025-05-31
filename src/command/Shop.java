@@ -25,8 +25,8 @@ public class Shop extends Command{
             shop.add(Armor.getArmors().get(rd.nextInt(Armor.getArmors().size())));
             while(!input.equalsIgnoreCase("exit")){
                 System.out.println("To exit the shop type \"exit\"");
-                System.out.println("1) " + shop.get(0) + "\n2) " + shop.get(1) + "\n3) " + shop.get(2));
-                input = sc.next();
+                System.out.println("1) " + shop.get(0) + "\n2) " + shop.get(1) + "\n3) " + shop.get(2) + "\n4) " + "Fix equipment");
+                input = sc.nextLine();
                 switch(input){
                     case "1)":
                         if(Player.getPlayer().getMoney() >= shop.get(0).getValue()){
@@ -52,6 +52,19 @@ public class Shop extends Command{
                             System.out.println("You don't have enough!");
                         }
                         break;
+                    case "4)":
+                        System.out.println("What do you wanna fix? (3 gold per equipment)");
+                        input = sc.nextLine();
+                        for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
+                            if(Player.getPlayer().getInventory().get(i).getName().equalsIgnoreCase(input) && (Player.getPlayer().getInventory().get(i) instanceof Armor || Player.getPlayer().getInventory().get(i) instanceof Weapon)){
+                                if(Player.getPlayer().getMoney() >= 3){
+                                    Player.getPlayer().changeMoney(-3);
+                                    Player.getPlayer().getInventory().get(i).setDurability(100);
+                                } else {
+                                    System.out.println("You dont have enough!");
+                                }
+                            }
+                        }
                 }
             }
             return "You left the shop!";
