@@ -9,9 +9,17 @@ import java.util.Scanner;
 
 public class Battle {
     public static void battle(Entity e){
+        Random rd = new Random();
+        switch(rd.nextInt(2)){
+            case 0:
+                Music.setFileName("fight.wav");
+                break;
+            case 1:
+                Music.setFileName("fight2.wav");
+                break;
+        }
         Music.play();
         Scanner sc = new Scanner(System.in);
-        Random rd = new Random();
         boolean playerGiveUp = false;
         boolean enemyGiveUp = false;
         int playerBlock = 0;

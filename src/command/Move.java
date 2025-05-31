@@ -1,5 +1,6 @@
 package command;
 
+import important.Music;
 import important.Player;
 import world.Location;
 import world.WorldMap;
@@ -50,6 +51,29 @@ public class Move extends Command {
                 return "You fell asleep and got robbed!";
             } else {
                 world.setCurrentPosition(moveId);
+                switch(world.getCurrentPosition().getLocationType()){
+                    case FOREST:
+                        Music.setFileName("forest.wav");
+                        break;
+                    case MOTEL:
+                        Music.setFileName("motel.wav");
+                        break;
+                    case HOUSE:
+                        Music.setFileName("house.wav");
+                        break;
+                    default:
+                        Music.setFileName("other.wav");
+                        break;
+                }
+                switch(world.getCurrentPosition().getName()){
+                    case "Semine":
+                        Music.setFileName("semine.wav");
+                        break;
+                    case "Kuttenberg":
+                        Music.setFileName("kuttenberg.wav");
+                        break;
+                }
+                Music.play();
                 return "You moved to: " + world.getName();
             }
         }
