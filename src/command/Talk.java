@@ -24,6 +24,7 @@ public class Talk extends Command {
                 String input = "";
                 while(!input.equals("1)") && !input.equals("2)") && !input.equals("3)") && !input.equals("4)")){
                     System.out.println(e.getName());
+                    System.out.println("Charisma: " + e.getCharisma() + "\nSpeech: " + e.getSpeech());
                     System.out.println("1) Ask them for money\n2) Ask them for an item\n3) Fight them\n4) Leave them alone");
                     input = sc.nextLine();
                 }
@@ -60,6 +61,8 @@ public class Talk extends Command {
                     case "3)":
                         Battle.battle(e);
                         return "";
+                    case "4)":
+                        return "You left them alone";
                 }
             }
         }
