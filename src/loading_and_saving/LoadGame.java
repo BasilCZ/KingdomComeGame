@@ -36,7 +36,7 @@ public class LoadGame {
                 Armor chestplate = Armor.getArmors().get(11);
                 Armor leggings = Armor.getArmors().get(3);
                 Weapon weapon = Weapon.getWeapons().get(10);
-                Player p = new Player(100,100,200,200,200,helmet, chestplate, leggings, weapon, 20, 0, 0);
+                Player p = new Player(100,100,2,2,200,helmet, chestplate, leggings, weapon, 20, 0, 0);
                 Player.getPlayer().addToInventory(helmet);
                 Player.getPlayer().addToInventory(chestplate);
                 Player.getPlayer().addToInventory(leggings);
