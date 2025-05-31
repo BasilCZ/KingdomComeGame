@@ -11,22 +11,22 @@ public class Item {
     protected int index;
     protected String name;
     protected String description;
-    private int howMany;
     private ItemType type;
     protected int durability;
     protected int value;
     protected boolean equippable;
+    private int increaseHowMuch;
     private static HashMap<Integer, Item> items = new HashMap<>();
 
-    public Item(int index, String name, String description, int howMany, ItemType type, int durability, int value, boolean equippable) {
+    public Item(int index, String name, String description, ItemType type, int durability, int value, boolean equippable, int increaseHowMuch) {
         this.index = index;
         this.name = name;
         this.description = description;
-        this.howMany = howMany;
         this.type = type;
         this.durability = durability;
         this.value = value;
         this.equippable = equippable;
+        this.increaseHowMuch = increaseHowMuch;
     }
 
     public Item(int index, String name, String description, int durability, int value, boolean equippable) {
@@ -49,11 +49,11 @@ public class Item {
                         Integer.parseInt(lines[0]),
                         lines[1],
                         lines[2],
-                        Integer.parseInt(lines[3]),
-                        ItemType.valueOf(lines[4]),
+                        ItemType.valueOf(lines[3]),
+                        Integer.parseInt(lines[4]),
                         Integer.parseInt(lines[5]),
-                        Integer.parseInt(lines[6]),
-                        Boolean.parseBoolean(lines[7])
+                        Boolean.parseBoolean(lines[6]),
+                        Integer.parseInt(lines[7])
                 );
                 items.put(Integer.parseInt(lines[0]), item);
             }
@@ -66,10 +66,6 @@ public class Item {
 
     public static HashMap<Integer, Item> getItems() {
         return items;
-    }
-
-    public void increaseHowMany(){
-        this.howMany++;
     }
 
     public int getIndex() {
@@ -100,10 +96,6 @@ public class Item {
         return description;
     }
 
-    public int getHowMany() {
-        return howMany;
-    }
-
     public ItemType getType() {
         return type;
     }
@@ -118,5 +110,9 @@ public class Item {
 
     public boolean isEquippable() {
         return equippable;
+    }
+
+    public int getIncreaseHowMuch() {
+        return increaseHowMuch;
     }
 }

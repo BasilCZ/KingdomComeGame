@@ -15,7 +15,7 @@ public class Equip extends Command{
         if(!Player.getPlayer().getInventory().isEmpty()) {
             System.out.println("What do you wanna equip?");
             Scanner sc = new Scanner(System.in);
-            String name = sc.next();
+            String name = sc.nextLine();
             for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
                 if (name.equalsIgnoreCase(Player.getPlayer().getInventory().get(i).getName()) && Player.getPlayer().getInventory().get(i).isEquippable()) {
                     if (Player.getPlayer().getInventory().get(i) instanceof Weapon) {

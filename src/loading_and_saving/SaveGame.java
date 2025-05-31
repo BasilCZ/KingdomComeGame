@@ -1,5 +1,6 @@
 package loading_and_saving;
 
+import important.Entity;
 import important.Player;
 import world.WorldMap;
 
@@ -15,6 +16,7 @@ public class SaveGame {
             stream.writeObject(wm.getWorld());
             stream.writeInt(wm.getCurrentId());
             stream.writeObject(Player.getPlayer());
+            stream.writeObject(Entity.getEntities());
 
             stream.close();
             return true;

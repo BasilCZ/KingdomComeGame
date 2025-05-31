@@ -13,20 +13,22 @@ import java.util.HashMap;
 public class LoadGame {
     public static boolean load(){
         WorldMap wm = new WorldMap();
-        if(WorldMap.loadMap() && Item.loadItems() && Weapon.loadWeapons() && Armor.loadArmor() /*&& Entity.loadEntities()*/){
+        Music.initialize();
+        if(WorldMap.loadMap() && Item.loadItems() && Weapon.loadWeapons() && Armor.loadArmor() && Entity.loadEntities()){
             if(new File("save.txt").exists()){
                 try {
                     ObjectInputStream stream = new ObjectInputStream(new FileInputStream("save.txt"));
                     WorldMap.setWorld((HashMap<Integer, Location>) stream.readObject());
                     wm.setCurrentPosition(stream.readInt());
                     Player.setPlayer((Player) stream.readObject());
+                    Entity.setEntities((HashMap<Integer, Entity>) stream.readObject());
                     stream.close();
                 } catch (IOException | ClassNotFoundException e) {
                     System.out.println(e.getMessage());
                     return false;
                 }
             } else {
-                Player p = new Player(100,100,2,2,100,Armor.getArmors().get(0), Armor.getArmors().get(11), Armor.getArmors().get(3), Weapon.getWeapons().get(0), 20, 100, 0, 0);
+                Player p = new Player(100,100,2,2,100,Armor.getArmors().get(0), Armor.getArmors().get(11), Armor.getArmors().get(3), Weapon.getWeapons().get(0), 20, 0, 0);
             }
             return true;
         } else {

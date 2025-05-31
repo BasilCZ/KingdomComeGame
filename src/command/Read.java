@@ -15,11 +15,11 @@ public class Read extends Command {
                     switch(Player.getPlayer().getInventory().get(i).getType()){
                         case BOOK:
                             Player.getPlayer().getInventory().remove(i);
-                            Player.getPlayer().changeCharisma(3);
+                            Player.getPlayer().changeCharisma(Player.getPlayer().getInventory().get(i).getIncreaseHowMuch());
                             break;
                         case LETTER:
                             Player.getPlayer().getInventory().remove(i);
-                            Player.getPlayer().changeSpeech(3);
+                            Player.getPlayer().changeSpeech(Player.getPlayer().getInventory().get(i).getIncreaseHowMuch());
                             break;
                         default:
                             return "You cant read that!";

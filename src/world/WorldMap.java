@@ -24,8 +24,7 @@ public class WorldMap implements Serializable {
                         lines[1],
                         Integer.parseInt(lines[0]),
                         Arrays.copyOfRange(lines, 2, 6),
-                        LocationType.valueOf(lines[6]),
-                        Boolean.parseBoolean(lines[6])
+                        LocationType.valueOf(lines[6])
                 );
                 kuttenberg.put(Integer.valueOf(lines[0]), location);
             }
@@ -40,8 +39,7 @@ public class WorldMap implements Serializable {
                         lines[1],
                         Integer.parseInt(lines[0]),
                         Arrays.copyOfRange(lines, 2, 6),
-                        LocationType.valueOf(lines[6]),
-                        Boolean.parseBoolean(lines[7])
+                        LocationType.valueOf(lines[6])
                 );
                 trosky.put(Integer.valueOf(lines[0]), location);
             }
@@ -81,4 +79,13 @@ public class WorldMap implements Serializable {
         WorldMap.current = world;
     }
 
+    public void goToTrosky(){
+        WorldMap.current = trosky;
+        setCurrentPosition(7);
+    }
+
+    public void goToKuttenberg(){
+        WorldMap.current = kuttenberg;
+        setCurrentPosition(14);
+    }
 }

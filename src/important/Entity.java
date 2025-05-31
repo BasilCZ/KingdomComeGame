@@ -93,8 +93,10 @@ public class Entity {
                 String[] intentoryLoad = lines[6].split(",");
                 ArrayList<Item> items = new ArrayList<>();
 
-                for (int i = 0; i < intentoryLoad.length; i++) {
-                    items.add(Item.getItems().get(Integer.parseInt(intentoryLoad[i])));
+                if(!lines[6].isBlank()) {
+                    for (int i = 0; i < intentoryLoad.length; i++) {
+                        items.add(Item.getItems().get(Integer.parseInt(intentoryLoad[i])));
+                    }
                 }
                 Entity entity = new Entity(
                         Integer.parseInt(lines[0]),
@@ -213,5 +215,51 @@ public class Entity {
 
     public int getWhere() {
         return where;
+    }
+
+    public void changeHp(int hp) {
+        if(this.hp + hp > maxHp){
+            this.hp = maxHp;
+        } else {
+            this.hp += hp;
+        }
+    }
+
+    public int getSpeech() {
+        return speech;
+    }
+
+    public int getCharisma() {
+        return charisma;
+    }
+
+    public static void setEntities(HashMap<Integer, Entity> entities) {
+        Entity.entities = entities;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    @Override
+    public String toString() {
+        return "Entity{" +
+                "index=" + index +
+                ", name='" + name + '\'' +
+                ", hp=" + hp +
+                ", maxHp=" + maxHp +
+                ", speech=" + speech +
+                ", charisma=" + charisma +
+                ", inventory=" + inventory +
+                ", stamina=" + stamina +
+                ", helmet=" + helmet +
+                ", chestplate=" + chestplate +
+                ", leggings=" + leggings +
+                ", weapon=" + weapon +
+                ", money=" + money +
+                ", where=" + where +
+                ", inTrosky=" + inTrosky +
+                ", isAlive=" + isAlive +
+                '}';
     }
 }

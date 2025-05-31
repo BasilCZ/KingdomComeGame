@@ -11,13 +11,12 @@ public class Location implements Serializable {
     private int id;
     private int[] locations;
     private LocationType locationType;
-    private boolean isLocked;
 
     public Location() {
 
     }
 
-    public Location(String name, int id, String[] locations, LocationType locationType, boolean isLocked) {
+    public Location(String name, int id, String[] locations, LocationType locationType) {
         this.name = name;
         this.id = id;
         this.locations = new int[4];
@@ -25,7 +24,6 @@ public class Location implements Serializable {
             this.locations[i] = Integer.parseInt(locations[i]);
         }
         this.locationType = locationType;
-        this.isLocked = isLocked;
     }
 
     @Override
@@ -35,7 +33,6 @@ public class Location implements Serializable {
                 ", id=" + id +
                 ", locations=" + Arrays.toString(locations) +
                 ", locationType=" + locationType +
-                ", isLocked=" + isLocked +
                 '}';
     }
 
@@ -49,14 +46,6 @@ public class Location implements Serializable {
 
     public String getName() {
         return name;
-    }
-
-    public boolean isLocked() {
-        return isLocked;
-    }
-
-    public void setLocked(boolean locked) {
-        isLocked = locked;
     }
 
     public int getId() {

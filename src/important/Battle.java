@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Battle {
     public static void battle(Entity e){
+        Music.play();
         Scanner sc = new Scanner(System.in);
         Random rd = new Random();
         boolean playerGiveUp = false;
@@ -105,7 +106,7 @@ public class Battle {
                     for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
                         for (int j = 0; j < e.getInventory().size(); j++) {
                             if(Player.getPlayer().getInventory().get(i).getIndex() == e.getInventory().get(j).getIndex()){
-                                Player.getPlayer().getInventory().get(i).increaseHowMany();
+                                Player.getPlayer().addToInventory(e.getInventory().get(j));
                             }
                         }
                     }
@@ -113,7 +114,11 @@ public class Battle {
                 case "3)":
                     System.out.println("You killed them");
                     e.setHp(0);
-                    e.setAlive(false);
+                    for (int i = 0; i < Entity.getEntities().size(); i++) {
+                        if(e.getIndex() == Entity.getEntities().get(i).getIndex()){
+                            Entity.getEntities().get(i).setAlive(false);
+                        }
+                    }
                     break;
             }
         }
@@ -121,7 +126,11 @@ public class Battle {
             System.out.println(new GameOver().execute());
         }
         if(e.getHp() == 0){
-            e.setAlive(false);
+            for (int i = 0; i < Entity.getEntities().size(); i++) {
+                if(e.getIndex() == Entity.getEntities().get(i).getIndex()){
+                    Entity.getEntities().get(i).setAlive(false);
+                }
+            }
             String input = "";
             while(!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no")){
                 System.out.println("Do you wanna loot their body? (Yes/No)");
@@ -134,7 +143,7 @@ public class Battle {
                     for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
                         for (int j = 0; j < e.getInventory().size(); j++) {
                             if(Player.getPlayer().getInventory().get(i).getIndex() == e.getInventory().get(j).getIndex()){
-                                Player.getPlayer().getInventory().get(i).increaseHowMany();
+                                Player.getPlayer().addToInventory(e.getInventory().get(j));
                             }
                         }
                     }
@@ -143,5 +152,6 @@ public class Battle {
                     System.out.println("You let the body rot on the ground");
             }
         }
+        Music.stop();
     }
 }

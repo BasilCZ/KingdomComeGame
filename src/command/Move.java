@@ -1,5 +1,6 @@
 package command;
 
+import important.Player;
 import world.Location;
 import world.WorldMap;
 
@@ -41,9 +42,12 @@ public class Move extends Command {
         if (moveId == -1) {
             return "You can't go in that direction!";
         } else {
-            //Checks if the door is locked or not
-            if (world.getWorld().get(moveId).isLocked()) {
-                return "The door is locked!";
+            Player.getPlayer().changeHunger(2);
+            Player.getPlayer().changeTiredness(1);
+            if(Player.getPlayer().getTiredness() >= 100){
+                Player.getPlayer().changeMoney(Player.getPlayer().getMoney()/2);
+                Player.getPlayer().setTiredness(0);
+                return "You fell asleep and got robbed!";
             } else {
                 world.setCurrentPosition(moveId);
                 return "You moved to: " + world.getName();
@@ -53,7 +57,10 @@ public class Move extends Command {
 
     @Override
     public boolean exit() {
-        int currentId = world.getCurrentId();
-        return currentId == 13;
+        if(Player.getPlayer().getHunger() >= 100){
+            System.out.println("You starved to death");
+            return true;
+        }
+        return false;
     }
 }
