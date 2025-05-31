@@ -1,6 +1,7 @@
 package important;
 
 public class Player extends Entity {
+
     private static Player player;
     private int hunger;
     private int tiredness;
@@ -18,6 +19,7 @@ public class Player extends Entity {
         this.hunger = hunger;
         this.tiredness = tiredness;
 
+        //ChatGPT
         player = this;
     }
 

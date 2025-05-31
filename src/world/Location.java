@@ -48,10 +48,6 @@ public class Location implements Serializable {
         return name;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public LocationType getLocationType() {
         return locationType;
     }

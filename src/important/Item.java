@@ -73,11 +73,6 @@ public class Item implements Serializable {
         return index;
     }
 
-    public void decreaseDurability() {
-        this.durability--;
-    }
-
-
     @Override
     public String toString() {
         return "Item{" +

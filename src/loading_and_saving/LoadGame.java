@@ -1,7 +1,6 @@
 package loading_and_saving;
 
 import important.*;
-import world.Location;
 import world.WorldMap;
 
 import java.io.File;

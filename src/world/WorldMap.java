@@ -63,20 +63,12 @@ public class WorldMap implements Serializable {
         currentPosition = newPosition;
     }
 
-    public HashMap<Integer, Location> getWorld() {
-        return current;
-    }
-
     public String getName() {
         return current.get(currentPosition).getName();
     }
 
     public String getNameOf(int index){
         return current.get(index).getName();
-    }
-
-    public static void setWorld(HashMap<Integer, Location> world) {
-        WorldMap.current = world;
     }
 
     public void goToTrosky(){
