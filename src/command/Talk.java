@@ -30,15 +30,27 @@ public class Talk extends Command {
                 switch(input){
                     case "1)":
                         if(Player.getPlayer().getSpeech() >= e.getSpeech()){
-                            Player.getPlayer().changeMoney(e.getMoney()/4);
-                            return "You got " + e.getMoney()/4 + " money!";
+                            if(!e.isGaveMoney()) {
+                                Player.getPlayer().changeMoney(e.getMoney() / 4);
+                                e.setGaveMoney(true);
+                                return "You got " + e.getMoney() / 4 + " money!";
+                            } else {
+                                return "I already gave you some money!";
+                            }
+                        } else {
+                            return "I'm not giving you anything";
                         }
                     case "2)":
                         if(Player.getPlayer().getCharisma() >= e.getCharisma()){
                             if(!e.getInventory().isEmpty()){
-                                int random = rd.nextInt(e.getInventory().size());
-                                Player.getPlayer().addToInventory(e.getInventory().get(random));
-                                return "You got " + e.getInventory().get(random);
+                                if(!e.isGaveItem()) {
+                                    int random = rd.nextInt(e.getInventory().size());
+                                    Player.getPlayer().addToInventory(e.getInventory().get(random));
+                                    e.setGaveItem(true);
+                                    return "You got " + e.getInventory().get(random);
+                                } else {
+                                    return "I already gave you an item";
+                                }
                             } else {
                                 return "Sorry I dont have anything on me";
                             }

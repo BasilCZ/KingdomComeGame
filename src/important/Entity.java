@@ -22,9 +22,11 @@ public class Entity implements Serializable {
     protected Weapon weapon;
     protected int money;
     private static HashMap<Integer, Entity> entities = new HashMap<>();
-    protected int where;
-    protected boolean inTrosky;
-    protected boolean isAlive;
+    private int where;
+    private boolean inTrosky;
+    private boolean isAlive;
+    private boolean gaveMoney;
+    private boolean gaveItem;
 
     public Entity() {
     }
@@ -42,7 +44,7 @@ public class Entity implements Serializable {
         this.money = money;
     }
 
-    public Entity(int index, String name, int hp, int maxHp, int speech, int charisma, ArrayList<Item> inventory, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon, int money, int where, boolean inTrosky, boolean isAlive) {
+    public Entity(int index, String name, int hp, int maxHp, int speech, int charisma, ArrayList<Item> inventory, int stamina, Armor helmet, Armor chestplate, Armor leggings, Weapon weapon, int money, int where, boolean inTrosky, boolean isAlive, boolean gaveMoney, boolean gaveItem) {
         this.index = index;
         this.name = name;
         this.hp = hp;
@@ -59,6 +61,8 @@ public class Entity implements Serializable {
         this.where = where;
         this.inTrosky = inTrosky;
         this.isAlive = isAlive;
+        this.gaveMoney = gaveMoney;
+        this.gaveItem = gaveItem;
     }
 
     public ArrayList<Item> getInventory() {
@@ -128,7 +132,9 @@ public class Entity implements Serializable {
                         Integer.parseInt(lines[12]),
                         Integer.parseInt(lines[13]),
                         Boolean.parseBoolean(lines[14]),
-                        Boolean.parseBoolean(lines[15])
+                        Boolean.parseBoolean(lines[15]),
+                        Boolean.parseBoolean(lines[16]),
+                        Boolean.parseBoolean(lines[17])
                 );
                 entities.put(Integer.parseInt(lines[0]), entity);
             }
@@ -295,5 +301,21 @@ public class Entity implements Serializable {
 
     public void setStamina(int stamina) {
         this.stamina = stamina;
+    }
+
+    public boolean isGaveMoney() {
+        return gaveMoney;
+    }
+
+    public void setGaveMoney(boolean gaveMoney) {
+        this.gaveMoney = gaveMoney;
+    }
+
+    public boolean isGaveItem() {
+        return gaveItem;
+    }
+
+    public void setGaveItem(boolean gaveItem) {
+        this.gaveItem = gaveItem;
     }
 }

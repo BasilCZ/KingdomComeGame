@@ -1,12 +1,1 @@
-equip
-edgmdhmsk
-hm,lshdgmkl
-dfhhfdfhhdhydfhhfdhfdhdffhh
-sleep
-travel
-shop
-read
-history
-help
-gameover
-equipment
+talk
