@@ -6,7 +6,7 @@ public class Stats extends Command{
     @Override
     public String execute() {
         Player p = Player.getPlayer();
-        return "Hunger: " + p.getHunger() + "\nTiredness: " + p.getTiredness() + "\nMoney: " + p.getMoney() + "\nSpeech: " + p.getSpeech() + "\nCharisma: " + p.getCharisma();
+        return "Hunger: " + p.getHunger() + "\nTiredness: " + p.getTiredness() + "\nStamina: " + p.getStamina() +  "\nMoney: " + p.getMoney() + "\nSpeech: " + p.getSpeech() + "\nCharisma: " + p.getCharisma();
     }
 
     @Override

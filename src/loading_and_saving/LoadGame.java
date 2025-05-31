@@ -20,7 +20,6 @@ public class LoadGame {
             if(new File("save.txt").exists()){
                 try {
                     ObjectInputStream stream = new ObjectInputStream(new FileInputStream("save.txt"));
-                    WorldMap.setWorld((HashMap<Integer, Location>) stream.readObject());
                     wm.setCurrentPosition(stream.readInt());
                     Player.setPlayer((Player) stream.readObject());
                     Entity.setEntities((HashMap<Integer, Entity>) stream.readObject());
@@ -30,7 +29,15 @@ public class LoadGame {
                     return false;
                 }
             } else {
-                Player p = new Player(100,100,2,2,100,Armor.getArmors().get(0), Armor.getArmors().get(11), Armor.getArmors().get(3), Weapon.getWeapons().get(0), 20, 0, 0);
+                Player p = new Player(100,100,2,2,200,Armor.getArmors().get(0), Armor.getArmors().get(11), Armor.getArmors().get(3), Weapon.getWeapons().get(0), 20, 0, 0);
+                Player.getPlayer().addToInventory(Armor.getArmors().get(0));
+                Player.getPlayer().addToInventory(Armor.getArmors().get(11));
+                Player.getPlayer().addToInventory(Armor.getArmors().get(3));
+                Player.getPlayer().addToInventory(Weapon.getWeapons().get(0));
+                Player.getPlayer().addToInventory(Item.getItems().get(6));
+                Player.getPlayer().addToInventory(Item.getItems().get(5));
+                Player.getPlayer().addToInventory(Item.getItems().get(1));
+                Player.getPlayer().addToInventory(Item.getItems().get(0));
             }
             return true;
         } else {

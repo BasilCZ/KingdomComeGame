@@ -1,6 +1,6 @@
 package important;
 
-public class Player extends Entity{
+public class Player extends Entity {
     private static Player player;
     private int hunger;
     private int tiredness;
@@ -47,10 +47,6 @@ public class Player extends Entity{
 
     public int getTiredness() {
         return tiredness;
-    }
-
-    public void setHunger(int hunger) {
-        this.hunger = hunger;
     }
 
     public void setTiredness(int tiredness) {

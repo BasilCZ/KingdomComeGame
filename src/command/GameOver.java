@@ -3,7 +3,9 @@ package command;
 public class GameOver extends Command{
     @Override
     public String execute() {
-        return "You died";
+        System.out.println("You died");
+        System.exit(0);
+        return null;
     }
 
     @Override

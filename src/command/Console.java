@@ -27,6 +27,7 @@ public class Console {
         map.put("equipment", new Equipment());
         map.put("sleep", new Sleep());
         map.put("stats", new Stats());
+        map.put("use", new Use());
     }
 
     private Scanner scanner = new Scanner(System.in);

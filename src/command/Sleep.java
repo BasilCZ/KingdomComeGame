@@ -10,6 +10,7 @@ public class Sleep extends Command{
         WorldMap wm = new WorldMap();
         if(wm.getCurrentPosition().getLocationType() == LocationType.MOTEL){
             Player.getPlayer().setTiredness(0);
+            Player.getPlayer().setHp(Player.getPlayer().getMaxHp());
             return "You went to sleep";
         }
         return "There's no motel here!";

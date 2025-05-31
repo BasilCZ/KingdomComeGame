@@ -5,9 +5,10 @@ import enums.ItemType;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Item {
+public class Item implements Serializable {
     protected int index;
     protected String name;
     protected String description;

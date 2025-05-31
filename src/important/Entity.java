@@ -3,10 +3,11 @@ package important;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Entity {
+public class Entity implements Serializable {
     protected int index;
     protected String name;
     protected int hp;
@@ -81,6 +82,8 @@ public class Entity {
             if(hp < 0){
                 hp = 0;
             }
+        } else {
+            damage = 0;
         }
         return damage;
     }
@@ -158,8 +161,8 @@ public class Entity {
     }
 
     public void changeStamina(int stamina) {
-        if(this.stamina + stamina > 100){
-            this.stamina = 100;
+        if(this.stamina + stamina > 200){
+            this.stamina = 200;
         } else {
             this.stamina += stamina;
         }

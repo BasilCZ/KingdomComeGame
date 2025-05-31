@@ -13,7 +13,6 @@ public class SaveGame {
         WorldMap wm = new WorldMap();
         try {
             ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream("save.txt"));
-            stream.writeObject(wm.getWorld());
             stream.writeInt(wm.getCurrentId());
             stream.writeObject(Player.getPlayer());
             stream.writeObject(Entity.getEntities());

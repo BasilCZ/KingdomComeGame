@@ -2,6 +2,7 @@ package important;
 
 import command.GameOver;
 import enums.BattleChoice;
+import world.WorldMap;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 public class Battle {
     public static void battle(Entity e){
         Random rd = new Random();
+        WorldMap wm = new WorldMap();
         switch(rd.nextInt(2)){
             case 0:
                 Music.setFileName("fight.wav");
@@ -44,12 +46,15 @@ public class Battle {
             switch(BattleChoice.valueOf(input.toUpperCase())){
                 case BattleChoice.UP:
                     System.out.println("You did: " + e.attack(Player.getPlayer().getWeapon().getDamage(), e.getHelmet(), enemyBlock) + " damage!");
+                    Player.getPlayer().changeStamina(-Player.getPlayer().getWeapon().getStaminaCost());
                     break;
                 case BattleChoice.DOWN:
                     System.out.println("You did: " + e.attack(Player.getPlayer().getWeapon().getDamage(), e.getLeggings(), enemyBlock) + " damage!");
+                    Player.getPlayer().changeStamina(-Player.getPlayer().getWeapon().getStaminaCost());
                     break;
                 case BattleChoice.LEFT, BattleChoice.RIGHT:
                     System.out.println("You did: " + e.attack(Player.getPlayer().getWeapon().getDamage(), e.getChestplate(), enemyBlock) + " damage!");
+                    Player.getPlayer().changeStamina(-Player.getPlayer().getWeapon().getStaminaCost());
                     break;
                 case BattleChoice.BLOCK:
                     System.out.println("You're blocking!");
@@ -74,12 +79,15 @@ public class Battle {
                 switch(choice){
                     case BattleChoice.UP:
                         System.out.println("The enemy did: " + Player.getPlayer().attack(e.getWeapon().getDamage(), Player.getPlayer().getHelmet(), playerBlock) + " damage!");
+                        e.changeStamina(-e.getWeapon().getStaminaCost());
                         break;
                     case BattleChoice.DOWN:
                         System.out.println("The enemy did: " + Player.getPlayer().attack(e.getWeapon().getDamage(), Player.getPlayer().getLeggings(), playerBlock) + " damage!");
+                        e.changeStamina(-e.getWeapon().getStaminaCost());
                         break;
                     case BattleChoice.LEFT, BattleChoice.RIGHT:
                         System.out.println("The enemy did: " + Player.getPlayer().attack(e.getWeapon().getDamage(), Player.getPlayer().getChestplate(), playerBlock) + " damage!");
+                        e.changeStamina(-e.getWeapon().getStaminaCost());
                         break;
                     case BattleChoice.BLOCK:
                         System.out.println("The enemy is blocking!");
@@ -132,6 +140,7 @@ public class Battle {
         }
         if(Player.getPlayer().getHp() == 0){
             System.out.println(new GameOver().execute());
+            new GameOver().exit();
         }
         if(e.getHp() == 0){
             for (int i = 0; i < Entity.getEntities().size(); i++) {
@@ -160,6 +169,28 @@ public class Battle {
                     System.out.println("You let the body rot on the ground");
             }
         }
-        Music.stop();
+        switch(wm.getCurrentPosition().getLocationType()){
+            case FOREST:
+                Music.setFileName("forest.wav");
+                break;
+            case MOTEL:
+                Music.setFileName("motel.wav");
+                break;
+            case HOUSE:
+                Music.setFileName("house.wav");
+                break;
+            default:
+                Music.setFileName("other.wav");
+                break;
+        }
+        switch(wm.getCurrentPosition().getName()){
+            case "Semine":
+                Music.setFileName("semine.wav");
+                break;
+            case "Kuttenberg":
+                Music.setFileName("kuttenberg.wav");
+                break;
+        }
+        Music.play();
     }
 }
