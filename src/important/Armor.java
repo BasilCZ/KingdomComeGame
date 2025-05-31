@@ -48,7 +48,15 @@ public class Armor extends Item{
     }
 
     public int getProtection() {
-        return protection;
+        if(durability <= 20){
+            if(protection - 2 >=0){
+                return protection - 2;
+            } else {
+                return 0;
+            }
+        } else {
+            return protection;
+        }
     }
 
     @Override
@@ -57,6 +65,7 @@ public class Armor extends Item{
                 "name='" + getName() + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", type=" + type +
+                ", value=" + getValue() +
                 ", durability=" + getDurability() +
                 ", protection=" + protection +
                 '}';

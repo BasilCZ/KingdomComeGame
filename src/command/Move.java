@@ -73,6 +73,9 @@ public class Move extends Command {
                         Music.setFileName("kuttenberg.wav");
                         break;
                 }
+                for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
+                    Player.getPlayer().getInventory().get(i).changeDurability(-1);
+                }
                 Music.play();
                 return "You moved to: " + world.getName();
             }

@@ -51,7 +51,15 @@ public class Weapon extends Item{
     }
 
     public int getDamage() {
-        return damage;
+        if(durability <= 20){
+            if(damage - 2 >=0){
+                return damage - 2;
+            } else {
+                return 0;
+            }
+        } else {
+            return damage;
+        }
     }
 
     public int getStaminaCost() {

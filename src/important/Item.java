@@ -116,4 +116,11 @@ public class Item implements Serializable {
     public int getIncreaseHowMuch() {
         return increaseHowMuch;
     }
+
+    public void changeDurability(int durability) {
+        if(this.durability + durability < 0) {
+            this.durability = 0;
+        }
+        this.durability += durability;
+    }
 }

@@ -29,7 +29,7 @@ public class LoadGame {
                     return false;
                 }
             } else {
-                Player p = new Player(100,100,2,2,200,Armor.getArmors().get(0), Armor.getArmors().get(11), Armor.getArmors().get(3), Weapon.getWeapons().get(10), 20, 0, 0);
+                Player p = new Player(100,100,200,200,200,Armor.getArmors().get(0), Armor.getArmors().get(11), Armor.getArmors().get(3), Weapon.getWeapons().get(10), 20, 0, 0);
                 Player.getPlayer().addToInventory(Armor.getArmors().get(0));
                 Player.getPlayer().addToInventory(Armor.getArmors().get(11));
                 Player.getPlayer().addToInventory(Armor.getArmors().get(3));
