@@ -3,11 +3,11 @@
 2;Cheese;A piece of aged cheese;FOOD;100;3;false;10
 3;Meat;Cooked and ready to eat;FOOD;100;5;false;20
 4;Water Bottle;Fresh drinking water;FOOD;100;1;false;6
-5;Health Potion;Restores some health;POTION;1;15;false;10
-6;Stamina Potion;Gives you energy;POTION;1;12;false;10
+5;Health Potion;Restores some health;POTION;100;15;false;10
+6;Stamina Potion;Gives you energy;POTION;100;12;false;10
 7;Old Book;Worn out and dusty;BOOK;100;4;false;2
 8;Letter from King;A letter sealed with wax;LETTER;100;10;false;3
-9;Elixir of Life;Very rare potion;POTION;1;50;false;50
+9;Elixir of Life;Very rare potion;POTION;1;100;false;50
 10;Love Letter;It smells like perfume;LETTER;100;2;false;4
 11;Cooked Fish;Delicious protein;FOOD;100;4;false;25
 12;Milk Bottle;Still fresh;FOOD;100;2;false;10

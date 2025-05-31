@@ -36,26 +36,26 @@ public class Shop extends Command{
                         if(Player.getPlayer().getMoney() >= shop.get(0).getValue()){
                             Player.getPlayer().changeMoney(-shop.get(0).getValue());
                             Player.getPlayer().addToInventory(shop.get(0));
+                            return "You bought " + shop.get(0).getName();
                         } else {
-                            System.out.println("You don't have enough!");
+                            return "You don't have enough!";
                         }
-                        break;
                     case "2)":
                         if(Player.getPlayer().getMoney() >= shop.get(1).getValue()){
                             Player.getPlayer().changeMoney(-shop.get(1).getValue());
                             Player.getPlayer().addToInventory(shop.get(1));
+                            return "You bought " + shop.get(1).getName();
                         } else {
-                            System.out.println("You don't have enough!");
+                            return "You don't have enough!";
                         }
-                        break;
                     case "3)":
                         if(Player.getPlayer().getMoney() >= shop.get(2).getValue()){
                             Player.getPlayer().changeMoney(-shop.get(2).getValue());
                             Player.getPlayer().addToInventory(shop.get(2));
+                            return "You bought " + shop.get(2).getName();
                         } else {
-                            System.out.println("You don't have enough!");
+                            return "You don't have enough!";
                         }
-                        break;
                     case "4)":
                         System.out.println("What do you wanna fix? (3 gold per equipment)");
                         input = sc.nextLine();
@@ -64,11 +64,13 @@ public class Shop extends Command{
                                 if(Player.getPlayer().getMoney() >= 3){
                                     Player.getPlayer().changeMoney(-3);
                                     Player.getPlayer().getInventory().get(i).setDurability(100);
+                                    return "You fixed " + Player.getPlayer().getInventory().get(i).getName();
                                 } else {
-                                    System.out.println("You dont have enough!");
+                                    return "You dont have enough!";
                                 }
                             }
                         }
+                        return "Cant fix that";
                 }
             }
             return "You left the shop!";
