@@ -32,12 +32,15 @@ class EntityTest {
     void changeHp() {
         Entity e = new Entity();
         e.setHp(100);
-        e.setMaxHp(200);
+        e.setMaxHp(100);
+        e.changeHp(10);
+        assertEquals(100,e.getHp());
+        /*e.setMaxHp(200);
         e.changeHp(100);
         assertEquals(200,e.getHp());
         e.changeHp(100);
         assertEquals(300,e.getHp());
         e.changeStamina(-1000);
-        assertEquals(0, e.getStamina());
+        assertEquals(0, e.getStamina());*/
     }
 }

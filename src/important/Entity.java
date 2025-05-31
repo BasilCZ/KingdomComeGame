@@ -225,7 +225,7 @@ public class Entity implements Serializable {
     public void changeHp(int hp) {
         if(this.hp + hp > maxHp){
             this.hp = maxHp;
-        } if(this.hp + hp < maxHp) {
+        } else if(this.hp + hp < maxHp) {
             this.hp = 0;
         } else {
             this.hp += hp;

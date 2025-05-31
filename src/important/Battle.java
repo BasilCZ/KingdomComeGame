@@ -196,6 +196,5 @@ public class Battle {
                 break;
         }
         Music.play();
-        Player.getPlayer().changeStamina(100000);
     }
 }
