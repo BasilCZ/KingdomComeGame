@@ -54,4 +54,8 @@ public class Player extends Entity {
     public void setTiredness(int tiredness) {
         this.tiredness = tiredness;
     }
+
+    public void setHunger(int hunger) {
+        this.hunger = hunger;
+    }
 }

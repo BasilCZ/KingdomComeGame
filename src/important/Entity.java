@@ -163,6 +163,8 @@ public class Entity implements Serializable {
     public void changeStamina(int stamina) {
         if(this.stamina + stamina > 200){
             this.stamina = 200;
+        } else  if (this.stamina + stamina < 0){
+            this.stamina = 0;
         } else {
             this.stamina += stamina;
         }
@@ -223,6 +225,8 @@ public class Entity implements Serializable {
     public void changeHp(int hp) {
         if(this.hp + hp > maxHp){
             this.hp = maxHp;
+        } if(this.hp + hp < maxHp) {
+            this.hp = 0;
         } else {
             this.hp += hp;
         }
@@ -264,5 +268,13 @@ public class Entity implements Serializable {
                 ", inTrosky=" + inTrosky +
                 ", isAlive=" + isAlive +
                 '}';
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 }
