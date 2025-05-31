@@ -1,4 +1,1 @@
-move
-move
-move
-shop
+talk

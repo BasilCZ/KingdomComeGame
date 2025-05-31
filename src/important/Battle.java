@@ -33,7 +33,6 @@ public class Battle {
         while(Player.getPlayer().getHp() > 0 && e.getHp() > 0 && !playerGiveUp && !enemyGiveUp){
             String input = "";
             boolean correctInput = false;
-            enemyBlock = 0;
             //Player's turn
             while(!correctInput){
                 System.out.println("Player\nHp: " + Player.getPlayer().getHp() + "\nStamina: " + Player.getPlayer().getStamina() + "\n");
@@ -68,7 +67,7 @@ public class Battle {
                     break;
                 case BattleChoice.BLOCK:
                     System.out.println("You're blocking!");
-                    playerBlock = 5;
+                    playerBlock = 2;
                     Player.getPlayer().changeStamina(10);
                     break;
                 case BattleChoice.GIVEUP:
@@ -76,6 +75,7 @@ public class Battle {
                     playerGiveUp = true;
                     break;
             }
+            enemyBlock = 0;
 
             //Enemy's turn
             if(!playerGiveUp){
@@ -83,7 +83,7 @@ public class Battle {
                 while(choice == BattleChoice.GIVEUP){
                     choice = BattleChoice.values()[rd.nextInt(BattleChoice.values().length)];
                 }
-                if(e.getHp() < e.getMaxHp()/15 && rd.nextInt() >= 3){
+                if(e.getHp() < e.getMaxHp()/15 && rd.nextInt(6) >= 2){
                     choice = BattleChoice.GIVEUP;
                 }
                 switch(choice){
@@ -108,7 +108,7 @@ public class Battle {
                     case BattleChoice.BLOCK:
                         System.out.println("The enemy is blocking!");
                         e.changeStamina(10);
-                        enemyBlock = 5;
+                        enemyBlock = 2;
                         break;
                     case BattleChoice.GIVEUP:
                         enemyGiveUp = true;
