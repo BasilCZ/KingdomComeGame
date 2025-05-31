@@ -8,14 +8,15 @@ import world.WorldMap;
 import java.util.Scanner;
 
 public class Move extends Command {
-
-    private Scanner sc = new Scanner(System.in);
-    private Location currentLocation = new Location();
-    private WorldMap world = new WorldMap();
-
-    //Moves player to a diffrent room according to the direction
+    /**
+     * Moves the player to a new room and changes the music depending on the room.
+     * @return <code>String</code> room to which you moved to
+     */
     @Override
     public String execute() {
+        Scanner sc = new Scanner(System.in);
+        Location currentLocation = new Location();
+        WorldMap world = new WorldMap();
         currentLocation = world.getCurrentPosition();
         System.out.println(">> You are currently at: " + currentLocation.getName());
         System.out.println(">> Where would you like to move? (up,down,left,right,cancel)");

@@ -1,7 +1,9 @@
 package command;
 
 public class Help extends Command {
-    //Returns all the usable commands
+    /**
+     * @return <code>String</code> all usable commands
+     */
     @Override
     public String execute() {
         return "delete - Deletes your save file" +

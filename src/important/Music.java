@@ -11,7 +11,10 @@ public class Music {
     private static Clip clip;
     private static String currentlyPlaying;
 
-    public static void initialize(){
+    /**
+     * Initializes the audio at the start of the game.
+     */
+    public static void initialize() {
         try {
             file = new File("other.wav");
             audioInputStream = AudioSystem.getAudioInputStream(file);
@@ -23,12 +26,14 @@ public class Music {
         }
     }
 
-    public static void play(){
-        if(!currentlyPlaying.equals(fileName)) {
+    /**
+     * Checks whether the new room has a new music, if so the music will stop and start playing a new one, else the music will keep playing.
+     */
+    public static void play() {
+        if (!currentlyPlaying.equals(fileName)) {
             stop();
-
         }
-        if(!clip.isRunning()) {
+        if (!clip.isRunning()) {
             try {
                 file = new File(fileName);
                 currentlyPlaying = fileName;
@@ -43,7 +48,10 @@ public class Music {
         }
     }
 
-    public static void stop(){
+    /**
+     * Stops the audio.
+     */
+    public static void stop() {
         clip.stop();
     }
 

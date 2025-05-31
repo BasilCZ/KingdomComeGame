@@ -52,6 +52,10 @@ public class Location implements Serializable {
         return locationType;
     }
 
+    /**
+     * Checks all the neighboring rooms.
+     * @return <code>String</code> All the possible moves, to which you can move to.
+     */
     public String getPossibleMoves() {
         String possibleMoves = "Possible moves:";
         WorldMap wm = new WorldMap();

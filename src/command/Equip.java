@@ -7,7 +7,10 @@ import important.Weapon;
 import java.util.Scanner;
 
 public class Equip extends Command{
-
+    /**
+     * Equips a new armor/weapon.
+     * @return whether you equipped an item or not
+     */
     @Override
     public String execute() {
         System.out.println(new Inventory().execute());

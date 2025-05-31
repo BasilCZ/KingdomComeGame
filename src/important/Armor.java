@@ -18,6 +18,10 @@ public class Armor extends Item{
         this.protection = protection;
     }
 
+    /**
+     * Loads all the armors.
+     * @return <code>true</code> if all the armors are loaded correctly, <code>false</code> otherwise
+     */
     public static boolean loadArmor(){
         try(BufferedReader br = new BufferedReader(new FileReader("armor.csv"))){
             String line;
@@ -46,6 +50,10 @@ public class Armor extends Item{
         return armors;
     }
 
+    /**
+     * Counts armor's protection depending on the armor's durability.
+     * @return <code>int</code> how much protection
+     */
     public int getProtection() {
         if(durability <= 20){
             if(protection - 2 >=0){

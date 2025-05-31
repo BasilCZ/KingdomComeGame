@@ -10,6 +10,10 @@ import java.io.ObjectInputStream;
 import java.util.HashMap;
 
 public class LoadGame {
+    /**
+     * Loads all the important objects.
+     * @return <code>true</code> if everything is loaded correctly; <code>false</code> otherwise
+     */
     public static boolean load(){
         WorldMap wm = new WorldMap();
         Music.setFileName("other.wav");

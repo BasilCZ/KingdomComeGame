@@ -6,6 +6,10 @@ import important.Player;
 import java.util.Scanner;
 
 public class Read extends Command {
+    /**
+     * Reads something and increases the specific stat.
+     * @return <code>String</code> what you've read
+     */
     @Override
     public String execute() {
         Scanner sc = new Scanner(System.in);

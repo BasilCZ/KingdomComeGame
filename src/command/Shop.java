@@ -12,6 +12,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Shop extends Command{
+    /**
+     * Opens the shop and lets player buy/fix things.
+     * @return <code>String</code> depending on the player's input
+     */
     @Override
     public String execute() {
         WorldMap wm = new  WorldMap();

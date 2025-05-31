@@ -9,6 +9,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Battle {
+    /**
+     * Initiates a turn-based battle between the player and the enemy.
+     * @param e the enemy.
+     */
     public static void battle(Entity e){
         Random rd = new Random();
         WorldMap wm = new WorldMap();

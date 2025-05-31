@@ -9,6 +9,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Talk extends Command {
+    /**
+     * Gives player the dialogue option if there's an entity in the current room.
+     * @return <code>String</code> depending on the player's dialogue choice and location
+     */
     @Override
     public String execute() {
         WorldMap wm = new WorldMap();

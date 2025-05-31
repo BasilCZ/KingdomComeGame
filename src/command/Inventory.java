@@ -3,7 +3,9 @@ package command;
 import important.Player;
 
 public class Inventory extends Command {
-    //Returns player's inventory
+    /**
+     * @return Formated <code>String</code> of player's inventory
+     */
     @Override
     public String execute() {
         if (Player.getPlayer().getInventory().isEmpty()) {

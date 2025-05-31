@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class SaveGame {
+    /**
+     * Saves all the important objects.
+     * @return <code>true</code> if every object is saved correctly; <code>false</code> otherwise
+     */
     public static boolean save(){
         WorldMap wm = new WorldMap();
         try {

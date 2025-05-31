@@ -3,6 +3,9 @@ package command;
 import important.Player;
 
 public class Equipment extends Command{
+    /**
+     * @return Formated <code>String</code> equipped armors and weapon
+     */
     @Override
     public String execute() {
         return "Helmet: " + Player.getPlayer().getHelmet()

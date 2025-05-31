@@ -3,6 +3,10 @@ package command;
 import java.io.File;
 
 public class Delete extends Command {
+    /**
+     * Deletes the save file.
+     * @return <code>String</code> depending on if the game was deleted or not
+     */
     @Override
     public String execute() {
         File file = new File("save.txt");

@@ -5,6 +5,10 @@ import important.Player;
 import java.util.Scanner;
 
 public class Use extends Command{
+    /**
+     * Uses an item depending on if the player has the item and on player's input.
+     * @return <code>String</code> depending on the player's input
+     */
     @Override
     public String execute() {
         Scanner sc = new Scanner(System.in);

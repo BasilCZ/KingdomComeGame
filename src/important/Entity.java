@@ -69,6 +69,13 @@ public class Entity implements Serializable {
         return hp;
     }
 
+    /**
+     * Counts the attacker's damage to the defender.
+     * @param howMuch the attacker's damage.
+     * @param armor the defender's armor.
+     * @param bonusProtection bonus protection if the defender is blocking.
+     * @return <code>int</code> how much damage the attacker did to the defender
+     */
     public int attack(int howMuch, Armor armor, int bonusProtection){
         int damage = (howMuch - (armor.getProtection() + bonusProtection));
         if(damage > 0){
@@ -88,6 +95,10 @@ public class Entity implements Serializable {
         return damage;
     }
 
+    /**
+     * Loads all the entities.
+     * @return <code>true</code> if all the entities are loaded correctly; <code>false</code> otherwise
+     */
     public static boolean loadEntities(){
         try(BufferedReader br = new BufferedReader(new FileReader("entity.csv"))) {
             String line;
@@ -160,6 +171,10 @@ public class Entity implements Serializable {
         this.hp = hp;
     }
 
+    /**
+     * Increases/Decreases entity's stamina.
+     * @param stamina how much.
+     */
     public void changeStamina(int stamina) {
         if(this.stamina + stamina > 200){
             this.stamina = 200;
@@ -222,6 +237,10 @@ public class Entity implements Serializable {
         return where;
     }
 
+    /**
+     * Increases/Decreases entity's hp
+     * @param hp how much.
+     */
     public void changeHp(int hp) {
         if(this.hp + hp > maxHp){
             this.hp = maxHp;

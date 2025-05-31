@@ -5,6 +5,10 @@ import important.Player;
 import world.WorldMap;
 
 public class Sleep extends Command{
+    /**
+     * Lets the player sleep if they're near a motel.
+     * @return <code>String</code> depending on the player's location
+     */
     @Override
     public String execute() {
         WorldMap wm = new WorldMap();

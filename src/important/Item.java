@@ -40,7 +40,10 @@ public class Item implements Serializable {
     }
 
 
-
+    /**
+     * Loads all the items.
+     * @return <code>true</code> if all the items are loaded correctly; <code>false</code> otherwise
+     */
     public static boolean loadItems(){
         try (BufferedReader br = new BufferedReader(new FileReader("items.csv"))) {
             String line;
@@ -112,6 +115,10 @@ public class Item implements Serializable {
         return increaseHowMuch;
     }
 
+    /**
+     * Increases/Decreases the item's durability.
+     * @param durability how much.
+     */
     public void changeDurability(int durability) {
         if(this.durability + durability < 0) {
             this.durability = 0;

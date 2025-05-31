@@ -3,6 +3,10 @@ package command;
 import important.Player;
 
 public class Stats extends Command{
+
+    /**
+     * @return Formated <code>String</code> player's current statistics
+     */
     @Override
     public String execute() {
         Player p = Player.getPlayer();

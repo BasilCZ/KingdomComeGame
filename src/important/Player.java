@@ -27,6 +27,10 @@ public class Player extends Entity {
         Player.player = player;
     }
 
+    /**
+     * Increases/Decreases player's hunger.
+     * @param hunger how much.
+     */
     public void changeHunger(int hunger) {
         if(this.hunger + hunger < 0){
             this.hunger = 0;
@@ -39,6 +43,10 @@ public class Player extends Entity {
         return hunger;
     }
 
+    /**
+     * Increases/Decreases player's tiredness.
+     * @param tiredness how much.
+     */
     public void changeTiredness(int tiredness) {
         if(this.tiredness + tiredness < 0){
             this.tiredness = 0;

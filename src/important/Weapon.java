@@ -21,6 +21,10 @@ public class Weapon extends Item{
         this.staminaCost = staminaCost;
     }
 
+    /**
+     * Loads all the weapons.
+     * @return <code>true</code> if all the weapons are loaded correctly; <code>false</code> otherwise
+     */
     public static boolean loadWeapons(){
         try(BufferedReader br = new BufferedReader(new FileReader("weapons.csv"))) {
             String line;
