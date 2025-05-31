@@ -62,11 +62,6 @@ public class Entity implements Serializable {
     }
 
     public ArrayList<Item> getInventory() {
-        for (int i = 0; i < inventory.size(); i++) {
-            if(inventory.get(i).getDurability() == 0){
-                inventory.remove(i);
-            }
-        }
         return inventory;
     }
 
