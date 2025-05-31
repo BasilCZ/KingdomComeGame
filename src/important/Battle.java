@@ -119,12 +119,8 @@ public class Battle {
                 case "2)":
                     System.out.println("You robbed them!");
                     Player.getPlayer().changeMoney(e.getMoney());
-                    for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
-                        for (int j = 0; j < e.getInventory().size(); j++) {
-                            if(Player.getPlayer().getInventory().get(i).getIndex() == e.getInventory().get(j).getIndex()){
-                                Player.getPlayer().addToInventory(e.getInventory().get(j));
-                            }
-                        }
+                    for (int i = 0; i < e.getInventory().size(); i++) {
+                        Player.getPlayer().addToInventory(e.getInventory().get(i));
                     }
                     break;
                 case "3)":
@@ -157,12 +153,8 @@ public class Battle {
                 case "yes":
                     System.out.println("You looted the body");
                     Player.getPlayer().changeMoney(e.getMoney());
-                    for (int i = 0; i < Player.getPlayer().getInventory().size(); i++) {
-                        for (int j = 0; j < e.getInventory().size(); j++) {
-                            if(Player.getPlayer().getInventory().get(i).getIndex() == e.getInventory().get(j).getIndex()){
-                                Player.getPlayer().addToInventory(e.getInventory().get(j));
-                            }
-                        }
+                    for (int i = 0; i < e.getInventory().size(); i++) {
+                        Player.getPlayer().addToInventory(e.getInventory().get(i));
                     }
                     break;
                 case "no":
@@ -192,5 +184,6 @@ public class Battle {
                 break;
         }
         Music.play();
+        Player.getPlayer().changeStamina(100000);
     }
 }

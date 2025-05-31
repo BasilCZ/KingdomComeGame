@@ -15,13 +15,16 @@ public class Use extends Command{
                 switch(Player.getPlayer().getInventory().get(i).getType()){
                     case FOOD:
                         Player.getPlayer().changeHunger(-increase);
+                        break;
                     case POTION:
                         if(Player.getPlayer().getInventory().get(i).getIndex() == 6){
                             Player.getPlayer().changeStamina(increase);
                         } else {
                             Player.getPlayer().changeHp(increase);
                         }
+                        break;
                 }
+                Player.getPlayer().getInventory().remove(i);
             }
         }
         return "";

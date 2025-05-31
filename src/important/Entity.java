@@ -75,7 +75,7 @@ public class Entity implements Serializable {
             if(stamina - damage < 0){
                 stamina = 0;
                 this.hp += (stamina - damage);
-            } else {
+            } else if (stamina - damage > 0) {
                 stamina -= damage;
                 this.hp -= damage/10;
             }
